@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Category = () => {
   return (
     <div
-      className="flex flex-col items-center gap-4 py-16 text-gray-600"
+      className="flex flex-col items-center gap-4 my-5 py-16 text-gray-600"
       id="category"
     >
       <h1 className="text-3xl font-medium">Our Home Services</h1>
@@ -16,7 +16,7 @@ const Category = () => {
       </p>
       <div className="flex sm:justify-center gap-4 pt-5 w-full overflow-scroll">
         {categoryData.map((item, index) => (
-          <Link
+          <Link key={index._id}
             onClick={() => scrollTo(0, 0)}
             className="flex flex-col items-center text-sm font-semibold  cursor-pointer flex-shrink-0 hover:translate-y-[-10px] transition-all duration-500 "
             to={`/professional/${item.category}`}

@@ -4,10 +4,10 @@ import { AppContext } from "../context/AppContext";
 
 const TopProfessional = () => {
   const navigate = useNavigate();
-  const {Professionals} = useContext(AppContext)
+  const { Professionals } = useContext(AppContext);
 
   return (
-    <div className="flex flex-col items-center gap-6 my-20 text-gray-900 md:mx-10">
+    <div className="flex flex-col items-center gap-6 my-5 text-gray-900 md:mx-10">
       <h1 className="text-3xl text-center sm:w-1/2 font-medium">Top Professionals to Book</h1>
       <p className="sm:w-1/3 text-center text-sm text-gray-600">
         Simply browse through our extensive list of trusted doctors.
@@ -18,15 +18,16 @@ const TopProfessional = () => {
         {Professionals.slice(0, 10).map((item, index) => (
           <div
             onClick={() => navigate(`/booking/${item._id}`)}
-            className="border border-blue-100 rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 bg-white shadow-sm flex flex-col justify-between"
+            className="border-[1px] border-black rounded-xl overflow-hidden cursor-pointer shadow-[11px_10px_0px_rgba(0,0,0,0.85)] hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
             key={index}
           >
             {/* Improved Image Handling */}
-            <div className="w-full h-48 md:h-56 overflow-hidden">
+            <div className="w-full h-48 md:h-56 overflow-hidden flex items-center justify-center">
               <img
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
                 src={item.image}
                 alt={item.name}
+                style={{ objectPosition: 'top center' }} // Ensure the face is centered
               />
             </div>
 
@@ -51,7 +52,7 @@ const TopProfessional = () => {
       {/* Improved Button Styling */}
       <button
         className="mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-        onClick={() => navigate("/professionals") }
+        onClick={() => {navigate("/professional"); scrollTo(0,0)}}
       >
         View More Professionals
       </button>

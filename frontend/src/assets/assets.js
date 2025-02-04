@@ -1,4 +1,4 @@
-import appointment_img from './appointment_img.png'
+import booking_img from './booking_img.png'
 import header_img from './header_img.png'
 import group_profiles from './group_profiles.png'
 import profile_pic from './profile_pic.png'
@@ -61,7 +61,7 @@ import machanic4 from './pro34.jpeg'
 import machanic5 from './pro35.jpeg'
 
 export const assets = {
-    appointment_img,
+    booking_img,
     header_img,
     group_profiles,
     logo,
@@ -82,30 +82,37 @@ export const assets = {
 
 export const categoryData = [
     {
+        _id : 'technician',
         speciality: 'Technician',
         image: technicion
     },
     {
+        _id : 'plumber',
         speciality: 'Plumber',
         image: plumber
     },
     {
+        _id : 'chef',
         speciality: 'Chef',
         image: chef
     },
     {
+        _id : 'barber',
         speciality: 'Barber',
         image: barber
     },
-    {
+    { 
+        _id : 'carpenter',
         speciality: 'Carpenter',
         image: carpenter
     },
     {
+        _id : 'machanic',
         speciality: 'Machanic',
         image: machanic
     },
     {
+        _id : 'painter',
         speciality: 'Painter',
         image: painter
     }
