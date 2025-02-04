@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90" id="scissor">
+  <g id="scissor">
+    <circle id="label" cx="45" cy="45" r="45" style="fill:#bdc3c7"></circle>
+    <g id="icon">
+      <path d="M50.08 57.16l4.61-4L27.58 22a11.82 11.82 0 0 0 1.78 14.44z" style="fill:#e1e1e6"></path>
+      <path d="M50.08 58.16a1 1 0 0 1-.71-.29L28.66 37.15a12.81 12.81 0 0 1-1.93-15.67 1 1 0 0 1 1.61-.14l27.1 31.13a1 1 0 0 1-.1 1.41l-4.61 4a1 1 0 0 1-.65.28zM27.8 23.77a10.81 10.81 0 0 0 2.27 12l20.05 20.02L53.28 53z" style="fill:#464c63"></path>
+      <path d="M47.88 44.25l-5.75 6.38 4.37 4.31 5.69-5.63-4.31-5.06z" style="opacity:.2"></path>
+      <path d="M60.64 36.44A11.82 11.82 0 0 0 62.42 22l-27 31.12 4.55 4z" style="fill:#f0f0f2"></path>
+      <path d="M39.92 58.16a1 1 0 0 1-.66-.25l-4.55-4a1 1 0 0 1-.09-1.4l27-31.12a1 1 0 0 1 .88-.39 1 1 0 0 1 .77.48 12.81 12.81 0 0 1-1.93 15.67L40.63 57.87a1 1 0 0 1-.71.29zM36.78 53l3.1 2.75 20-20a10.81 10.81 0 0 0 2.27-12zm23.86-16.55z" style="fill:#464c63"></path>
+      <circle cx="45" cy="46.96" r="2" style="fill:#464c63"></circle>
+      <circle cx="34" cy="60" r="8" style="fill:#d87070"></circle>
+      <path d="M34 69a9 9 0 1 1 9-9 9 9 0 0 1-9 9zm0-16a7 7 0 1 0 7 7 7 7 0 0 0-7-7z" style="fill:#464c63"></path>
+      <circle cx="34" cy="60" r="4" style="fill:#bdc3c7"></circle>
+      <path d="M34 65a5 5 0 1 1 5-5 5 5 0 0 1-5 5zm0-8a3 3 0 1 0 3 3 3 3 0 0 0-3-3z" style="fill:#464c63"></path>
+      <circle cx="56" cy="60" r="8" style="fill:#d87070"></circle>
+      <path d="M56 69a9 9 0 1 1 9-9 9 9 0 0 1-9 9zm0-16a7 7 0 1 0 7 7 7 7 0 0 0-7-7z" style="fill:#464c63"></path>
+      <circle cx="56" cy="60" r="4" style="fill:#bdc3c7"></circle>
+      <path d="M56 65a5 5 0 1 1 5-5 5 5 0 0 1-5 5zm0-8a3 3 0 1 0 3 3 3 3 0 0 0-3-3z" style="fill:#464c63"></path>
+    </g>
+  </g>
+</svg>

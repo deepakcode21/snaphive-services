@@ -30,12 +30,14 @@ import doc12 from './doc12.png'
 import doc13 from './doc13.png'
 import doc14 from './doc14.png'
 import doc15 from './doc15.png'
-import Dermatologist from './Dermatologist.svg'
-import Gastroenterologist from './Gastroenterologist.svg'
-import General_physician from './General_physician.svg'
-import Gynecologist from './Gynecologist.svg'
-import Neurologist from './Neurologist.svg'
-import Pediatricians from './Pediatricians.svg'
+import barber from './barber.svg'
+import plumber from './plumber.svg'
+import technicion from './technicion.svg'
+import chef from './chef.svg'
+import carpenter from './carpenter.svg'
+import painter from './painter.svg'
+import machnic from './machnic.svg'
+
 
 
 export const assets = {
@@ -55,34 +57,45 @@ export const assets = {
     dropdown_icon,
     upload_icon,
     stripe_logo,
-    razorpay_logo
+    razorpay_logo,
+    barber,
+    plumber,
+    technicion,
+    chef,
+    carpenter,
+    painter,
+    machnic
 }
 
-export const specialityData = [
+export const categoryData = [
     {
-        speciality: 'General physician',
-        image: General_physician
+        speciality: 'Chef',
+        image: chef
     },
     {
-        speciality: 'Gynecologist',
-        image: Gynecologist
+        speciality: 'Plumber',
+        image: plumber
     },
     {
-        speciality: 'Dermatologist',
-        image: Dermatologist
+        speciality: 'Techniction',
+        image: technicion
     },
     {
-        speciality: 'Pediatricians',
-        image: Pediatricians
+        speciality: 'Painter',
+        image: painter
     },
     {
-        speciality: 'Neurologist',
-        image: Neurologist
+        speciality: 'Carpenter',
+        image: carpenter
     },
     {
-        speciality: 'Gastroenterologist',
-        image: Gastroenterologist
+        speciality: 'Barber',
+        image: barber
     },
+    {
+        speciality: 'Mechanic',
+        image: machnic
+    }
 ]
 
 export const doctors = [
