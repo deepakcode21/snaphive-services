@@ -13,19 +13,19 @@ const Navbar = () => {
       <img className="w-44 cursor-pointer" src={assets.logo} alt="" />
       <ul className="hidden md:flex items-start gap-5 font-medium">
         <NavLink to="/">
-          <li className="py-1">Home</li>
+          <li className="py-1 text-gray-800">Home</li>
           <hr className="border-none outline-none h-0.5 bg-[#020f40] w-3/5 m-auto hidden" />
         </NavLink>
         <NavLink to="/professional">
-          <li className="py-1">Professionals</li>
+          <li className="py-1 text-gray-800">Professionals</li>
           <hr className="border-none outline-none h-0.5 bg-[#020f40] w-3/5 m-auto hidden" />
         </NavLink>
         <NavLink to="/about">
-          <li className="py-1">About</li>
+          <li className="py-1 text-gray-800">About</li>
           <hr className="border-none outline-none h-0.5 bg-[#020f40] w-3/5 m-auto hidden" />
         </NavLink>
         <NavLink to="/contact">
-          <li className="py-1">Contact</li>
+          <li className="py-1 text-gray-800">Contact</li>
           <hr className="border-none outline-none h-0.5 bg-[#020f40] w-3/5 m-auto hidden" />
         </NavLink>
       </ul>

@@ -8,3 +8,17 @@
     @apply hidden
 }
 
+/* index.css or App.css */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EEEEEE; /* Set black background */
+    color: white; /* Optional: Set default text color to white for better contrast */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  /* Ensure all child elements inherit the background color */
+  html, body, #root {
+    height: 100%;
+    background-color: #EEEEEE;
+  }
