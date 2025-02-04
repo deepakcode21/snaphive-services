@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Category from '../components/Category'
 import TopProfessional from '../components/TopProfessional'
 import Banner from '../components/Banner'
+import Testimonial from '../components/Testimonial'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
     <Category />
     <TopProfessional />
     <Banner />
+    <Testimonial />
 
     </div>
   )

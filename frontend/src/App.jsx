@@ -10,6 +10,7 @@ import Booking from './pages/Booking'
 import MyProfile from './pages/MyProfile'
 
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 
 const App = () => {
@@ -29,6 +30,8 @@ const App = () => {
         <Route path='/booking/:proId' element={<Booking/>} />
         <Route path='/professional/:services' element={<Professional/>} />
       </Routes>
+
+      <Footer />
     </div>
   )
 }
