@@ -15,30 +15,50 @@ import info_icon from './info_icon.svg'
 import upload_icon from './upload_icon.png'
 import stripe_logo from './stripe_logo.png'
 import razorpay_logo from './razorpay_logo.png'
-import doc1 from './doc1.png'
-import doc2 from './doc2.png'
-import doc3 from './doc3.png'
-import doc4 from './doc4.png'
-import doc5 from './doc5.png'
-import doc6 from './doc6.png'
-import doc7 from './doc7.png'
-import doc8 from './doc8.png'
-import doc9 from './doc9.png'
-import doc10 from './doc10.png'
-import doc11 from './doc11.png'
-import doc12 from './doc12.png'
-import doc13 from './doc13.png'
-import doc14 from './doc14.png'
-import doc15 from './doc15.png'
+
 import barber from './barber.svg'
 import plumber from './plumber.svg'
 import technicion from './technicion.svg'
 import chef from './chef.svg'
 import carpenter from './carpenter.svg'
 import painter from './painter.svg'
-import machnic from './machnic.svg'
+import machanic from './machanic.svg'
 
-
+import barber1 from './pro1.jpeg'
+import barber2 from './pro2.jpeg'
+import barber3 from './pro3.jpeg'
+import barber4 from './pro4.jpeg'
+import barber5 from './pro5.jpeg'
+import chef1 from './pro6.jpeg'
+import chef2 from './pro7.jpeg'
+import chef3 from './pro8.jpeg'
+import chef4 from './pro9.jpeg'
+import chef5 from './pro10.jpeg'
+import painter1 from './pro11.jpeg'
+import painter2 from './pro12.jpeg'
+import painter3 from './pro13.jpeg'
+import painter4 from './pro14.jpeg'
+import painter5 from './pro15.jpeg'
+import plumber1 from './pro16.jpeg'
+import plumber2 from './pro17.jpeg'
+import plumber3 from './pro18.jpeg'
+import plumber4 from './pro19.jpeg'
+import plumber5 from './pro20.jpeg'
+import carpenter1 from './pro21.jpeg'
+import carpenter2 from './pro22.jpeg'
+import carpenter3 from './pro23.jpeg'
+import carpenter4 from './pro24.jpeg'
+import carpenter5 from './pro25.jpeg'
+import technician1 from './pro26.jpeg'
+import technician2 from './pro27.jpeg'
+import technician3 from './pro28.jpeg'
+import technician4 from './pro29.jpeg'
+import technician5 from './pro30.jpeg'
+import machanic1 from './pro31.jpeg'
+import machanic2 from './pro32.jpeg'
+import machanic3 from './pro33.jpeg'
+import machanic4 from './pro34.jpeg'
+import machanic5 from './pro35.jpeg'
 
 export const assets = {
     appointment_img,
@@ -58,55 +78,48 @@ export const assets = {
     upload_icon,
     stripe_logo,
     razorpay_logo,
-    barber,
-    plumber,
-    technicion,
-    chef,
-    carpenter,
-    painter,
-    machnic
 }
 
 export const categoryData = [
     {
-        speciality: 'Chef',
-        image: chef
+        speciality: 'Technician',
+        image: technicion
     },
     {
         speciality: 'Plumber',
         image: plumber
     },
     {
-        speciality: 'Techniction',
-        image: technicion
-    },
-    {
-        speciality: 'Painter',
-        image: painter
-    },
-    {
-        speciality: 'Carpenter',
-        image: carpenter
+        speciality: 'Chef',
+        image: chef
     },
     {
         speciality: 'Barber',
         image: barber
     },
     {
-        speciality: 'Mechanic',
-        image: machnic
+        speciality: 'Carpenter',
+        image: carpenter
+    },
+    {
+        speciality: 'Machanic',
+        image: machanic
+    },
+    {
+        speciality: 'Painter',
+        image: painter
     }
 ]
 
-export const doctors = [
+export const Professionals = [
     {
-        _id: 'doc1',
-        name: 'Dr. Richard James',
-        image: doc1,
-        speciality: 'General physician',
-        degree: 'MBBS',
+        _id: 'pro1',
+        name: 'Richard James',
+        image: barber1,
+        speciality: 'Barber',
+        degree: 'Bachelor of Fashion Design',
         experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        about: 'Richard James is dedicated to delivering top-quality grooming services, specializing in precision haircuts, stylish trims, and expert beard care. With a focus on detail and customer satisfaction, Richard ensures every client leaves looking and feeling their best.',
         fees: 50,
         address: {
             line1: '17th Cross, Richmond',
@@ -114,199 +127,479 @@ export const doctors = [
         }
     },
     {
-        _id: 'doc2',
-        name: 'Dr. Emily Larson',
-        image: doc2,
-        speciality: 'Gynecologist',
-        degree: 'MBBS',
-        experience: '3 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        _id: 'pro2',
+        name: 'Michael Brown',
+        image: plumber1,
+        speciality: 'Plumber',
+        degree: 'Diploma in Plumbing Technology',
+        experience: '6 Years',
+        about: 'Michael Brown is a skilled plumber with extensive experience in residential and commercial plumbing systems. He specializes in pipe installation, leak repairs, and water heater maintenance, ensuring efficient and reliable service.',
+        fees: 70,
+        address: {
+            line1: '22nd Avenue, Downtown',
+            line2: 'Main Street, Manchester'
+        }
+    },
+    {
+        _id: 'pro3',
+        name: 'David Wilson',
+        image: chef3,
+        speciality: 'Chef',
+        degree: 'Culinary Arts Degree',
+        experience: '8 Years',
+        about: 'David Wilson is a passionate chef with expertise in international cuisines. He creates delicious and visually appealing dishes, focusing on fresh ingredients and innovative techniques to delight every palate.',
+        fees: 90,
+        address: {
+            line1: '5th Lane, Food District',
+            line2: 'Gourmet Road, Paris'
+        }
+    },
+    {
+        _id: 'pro4',
+        name: 'John Smith',
+        image: painter1,
+        speciality: 'Painter',
+        degree: 'Bachelor of Fine Arts',
+        experience: '5 Years',
+        about: 'John Smith is a talented painter specializing in interior and exterior home painting. He provides high-quality finishes, color consultations, and meticulous attention to detail for every project.',
         fees: 60,
         address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: '10th Street, Art Ville',
+            line2: 'Canvas Road, New York'
         }
     },
     {
-        _id: 'doc3',
-        name: 'Dr. Sarah Patel',
-        image: doc3,
-        speciality: 'Dermatologist',
-        degree: 'MBBS',
-        experience: '1 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 30,
+        _id: 'pro5',
+        name: 'Robert Johnson',
+        image: technician1,
+        speciality: 'Technician',
+        degree: 'Associate Degree in Electronics',
+        experience: '7 Years',
+        about: 'Robert Johnson is an experienced technician specializing in repairing and maintaining electronic devices. He offers reliable solutions for smartphones, laptops, and home appliances.',
+        fees: 55,
         address: {
-            line1: '37th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Tech Park, Silicon Valley',
+            line2: 'Gadget Lane, San Francisco'
         }
     },
     {
-        _id: 'doc4',
-        name: 'Dr. Christopher Lee',
-        image: doc4,
-        speciality: 'Pediatricians',
-        degree: 'MBBS',
-        experience: '2 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 40,
+        _id: 'pro6',
+        name: 'William Davis',
+        image: carpenter2,
+        speciality: 'Carpenter',
+        degree: 'Diploma in Woodworking',
+        experience: '9 Years',
+        about: 'William Davis is a master carpenter with expertise in custom furniture, cabinetry, and home renovations. He combines traditional craftsmanship with modern techniques to deliver exceptional results.',
+        fees: 80,
         address: {
-            line1: '47th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Carpentry Lane, Woodville',
+            line2: 'Furniture Road, Chicago'
         }
     },
     {
-        _id: 'doc5',
-        name: 'Dr. Jennifer Garcia',
-        image: doc5,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
+        _id: 'pro7',
+        name: 'James Miller',
+        image: machanic1,
+        speciality: 'Mechanic',
+        degree: 'Automotive Technology Certificate',
+        experience: '10 Years',
+        about: 'James Miller is a skilled mechanic specializing in car repairs, engine diagnostics, and routine maintenance. He ensures vehicles run smoothly and safely with his expert knowledge and attention to detail.',
+        fees: 75,
         address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Auto Street, Motor Town',
+            line2: 'Garage Road, Detroit'
         }
     },
     {
-        _id: 'doc6',
-        name: 'Dr. Andrew Williams',
-        image: doc6,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc7',
-        name: 'Dr. Christopher Davis',
-        image: doc7,
-        speciality: 'General physician',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '17th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc8',
-        name: 'Dr. Timothy White',
-        image: doc8,
-        speciality: 'Gynecologist',
-        degree: 'MBBS',
+        _id: 'pro8',
+        name: 'Charles Wilson',
+        image: barber2,
+        speciality: 'Barber',
+        degree: 'Bachelor of Fashion Design',
         experience: '3 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        about: 'Charles Wilson is a dedicated barber with a passion for modern hairstyles and grooming techniques. He provides personalized services to help clients achieve their desired look.',
+        fees: 45,
+        address: {
+            line1: 'Haircut Lane, Style City',
+            line2: 'Grooming Road, Los Angeles'
+        }
+    },
+    {
+        _id: 'pro9',
+        name: 'Thomas Moore',
+        image: plumber2,
+        speciality: 'Plumber',
+        degree: 'Diploma in Plumbing Technology',
+        experience: '5 Years',
+        about: 'Thomas Moore is a reliable plumber with expertise in fixing leaks, installing fixtures, and maintaining plumbing systems. He ensures prompt and efficient service for every client.',
+        fees: 65,
+        address: {
+            line1: 'Pipe Street, Water Ville',
+            line2: 'Plumbing Road, Houston'
+        }
+    },
+    {
+        _id: 'pro10',
+        name: 'Christopher Taylor',
+        image: chef5,
+        speciality: 'Chef',
+        degree: 'Culinary Arts Degree',
+        experience: '7 Years',
+        about: 'Christopher Taylor is a creative chef specializing in fusion cuisine. He combines flavors from around the world to create unique and memorable dining experiences.',
+        fees: 85,
+        address: {
+            line1: 'Flavor Lane, Taste Town',
+            line2: 'Culinary Road, Miami'
+        }
+    },
+    {
+        _id: 'pro11',
+        name: 'Daniel Anderson',
+        image: painter2,
+        speciality: 'Painter',
+        degree: 'Bachelor of Fine Arts',
+        experience: '4 Years',
+        about: 'Daniel Anderson is a skilled painter with a focus on residential projects. He provides high-quality finishes and personalized color schemes to transform spaces.',
+        fees: 55,
+        address: {
+            line1: 'Brush Street, Color Ville',
+            line2: 'Paint Road, Seattle'
+        }
+    },
+    {
+        _id: 'pro12',
+        name: 'Matthew Thomas',
+        image: technician2,
+        speciality: 'Technician',
+        degree: 'Associate Degree in Electronics',
+        experience: '6 Years',
+        about: 'Matthew Thomas is an expert technician specializing in repairing smartphones and laptops. He offers fast and reliable solutions to keep your devices running smoothly.',
+        fees: 50,
+        address: {
+            line1: 'Tech Lane, Gadget Ville',
+            line2: 'Repair Road, Austin'
+        }
+    },
+    {
+        _id: 'pro13',
+        name: 'Anthony Jackson',
+        image: carpenter3,
+        speciality: 'Carpenter',
+        degree: 'Diploma in Woodworking',
+        experience: '8 Years',
+        about: 'Anthony Jackson is a skilled carpenter specializing in custom furniture and home renovations. He combines traditional techniques with modern designs to create beautiful and functional pieces.',
+        fees: 75,
+        address: {
+            line1: 'Woodcraft Lane, Furniture Ville',
+            line2: 'Carpentry Road, Denver'
+        }
+    },
+    {
+        _id: 'pro14',
+        name: 'Mark White',
+        image: machanic2,
+        speciality: 'Mechanic',
+        degree: 'Automotive Technology Certificate',
+        experience: '9 Years',
+        about: 'Mark White is a professional mechanic with expertise in car diagnostics and repairs. He ensures your vehicle is in top condition with his thorough and reliable service.',
+        fees: 70,
+        address: {
+            line1: 'Auto Lane, Motor Ville',
+            line2: 'Garage Road, Phoenix'
+        }
+    },
+    {
+        _id: 'pro15',
+        name: 'Donald Harris',
+        image: barber3,
+        speciality: 'Barber',
+        degree: 'Bachelor of Fashion Design',
+        experience: '5 Years',
+        about: 'Donald Harris is a talented barber specializing in modern haircuts and grooming services. He provides a relaxing and enjoyable experience for every client.',
+        fees: 50,
+        address: {
+            line1: 'Style Street, Grooming Ville',
+            line2: 'Haircut Road, San Diego'
+        }
+    },
+    {
+        _id: 'pro16',
+        name: 'Steven Martin',
+        image: plumber3,
+        speciality: 'Plumber',
+        degree: 'Diploma in Plumbing Technology',
+        experience: '7 Years',
+        about: 'Steven Martin is a skilled plumber with expertise in residential plumbing systems. He offers reliable and efficient solutions for all your plumbing needs.',
         fees: 60,
         address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Pipe Lane, Water Ville',
+            line2: 'Plumbing Road, Dallas'
         }
     },
     {
-        _id: 'doc9',
-        name: 'Dr. Ava Mitchell',
-        image: doc9,
-        speciality: 'Dermatologist',
-        degree: 'MBBS',
-        experience: '1 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 30,
+        _id: 'pro17',
+        name: 'Paul Thompson',
+        image: chef1,
+        speciality: 'Chef',
+        degree: 'Culinary Arts Degree',
+        experience: '6 Years',
+        about: 'Paul Thompson is a passionate chef specializing in Italian cuisine. He creates authentic and delicious dishes using fresh and high-quality ingredients.',
+        fees: 80,
         address: {
-            line1: '37th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Pasta Lane, Taste Ville',
+            line2: 'Culinary Road, Boston'
         }
     },
     {
-        _id: 'doc10',
-        name: 'Dr. Jeffrey King',
-        image: doc10,
-        speciality: 'Pediatricians',
-        degree: 'MBBS',
-        experience: '2 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 40,
+        _id: 'pro18',
+        name: 'Andrew Garcia',
+        image: painter3,
+        speciality: 'Painter',
+        degree: 'Bachelor of Fine Arts',
+        experience: '5 Years',
+        about: 'Andrew Garcia is a talented painter with a focus on exterior home painting. He provides durable and visually appealing finishes for every project.',
+        fees: 55,
         address: {
-            line1: '47th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Brush Lane, Color Ville',
+            line2: 'Paint Road, Atlanta'
         }
     },
     {
-        _id: 'doc11',
-        name: 'Dr. Zoe Kelly',
-        image: doc11,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
+        _id: 'pro19',
+        name: 'Joshua Martinez',
+        image: technician3,
+        speciality: 'Technician',
+        degree: 'Associate Degree in Electronics',
         experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        about: 'Joshua Martinez is an experienced technician specializing in home appliance repairs. He offers fast and reliable solutions to keep your household running smoothly.',
         fees: 50,
         address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Tech Lane, Gadget Ville',
+            line2: 'Repair Road, Orlando'
         }
     },
     {
-        _id: 'doc12',
-        name: 'Dr. Patrick Harris',
-        image: doc12,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
+        _id: 'pro20',
+        name: 'Kevin Robinson',
+        image: carpenter4,
+        speciality: 'Carpenter',
+        degree: 'Diploma in Woodworking',
+        experience: '7 Years',
+        about: 'Kevin Robinson is a skilled carpenter specializing in custom cabinetry and home renovations. He combines functionality with aesthetics to create beautiful spaces.',
+        fees: 70,
+        address: {
+            line1: 'Woodcraft Lane, Furniture Ville',
+            line2: 'Carpentry Road, San Antonio'
+        }
+    },
+    {
+        _id: 'pro21',
+        name: 'Brian Clark',
+        image: machanic3,
+        speciality: 'Mechanic',
+        degree: 'Automotive Technology Certificate',
+        experience: '8 Years',
+        about: 'Brian Clark is a professional mechanic specializing in car maintenance and repairs. He ensures your vehicle is safe and reliable with his expert service.',
+        fees: 65,
+        address: {
+            line1: 'Auto Lane, Motor Ville',
+            line2: 'Garage Road, Las Vegas'
+        }
+    },
+    {
+        _id: 'pro22',
+        name: 'Edward Rodriguez',
+        image: barber4,
+        speciality: 'Barber',
+        degree: 'Bachelor of Fashion Design',
         experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        about: 'Edward Rodriguez is a dedicated barber with a passion for modern hairstyles. He provides personalized grooming services to help clients look their best.',
         fees: 50,
         address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Style Lane, Grooming Ville',
+            line2: 'Haircut Road, Portland'
         }
     },
     {
-        _id: 'doc13',
-        name: 'Dr. Chloe Evans',
-        image: doc13,
-        speciality: 'General physician',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '17th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc14',
-        name: 'Dr. Ryan Martinez',
-        image: doc14,
-        speciality: 'Gynecologist',
-        degree: 'MBBS',
-        experience: '3 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        _id: 'pro23',
+        name: 'Ronald Lewis',
+        image: plumber4,
+        speciality: 'Plumber',
+        degree: 'Diploma in Plumbing Technology',
+        experience: '6 Years',
+        about: 'Ronald Lewis is a skilled plumber with expertise in fixing leaks and installing fixtures. He provides reliable and efficient service for every client.',
         fees: 60,
         address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Pipe Lane, Water Ville',
+            line2: 'Plumbing Road, Nashville'
         }
     },
     {
-        _id: 'doc15',
-        name: 'Dr. Amelia Hill',
-        image: doc15,
-        speciality: 'Dermatologist',
-        degree: 'MBBS',
-        experience: '1 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 30,
+        _id: 'pro24',
+        name: 'Jason Lee',
+        image: chef4,
+        speciality: 'Chef',
+        degree: 'Culinary Arts Degree',
+        experience: '5 Years',
+        about: 'Jason Lee is a creative chef specializing in Asian cuisine. He combines traditional flavors with modern techniques to create delicious and unique dishes.',
+        fees: 75,
         address: {
-            line1: '37th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Flavor Lane, Taste Ville',
+            line2: 'Culinary Road, Minneapolis'
+        }
+    },
+    {
+        _id: 'pro25',
+        name: 'Jeffrey Walker',
+        image: painter4,
+        speciality: 'Painter',
+        degree: 'Bachelor of Fine Arts',
+        experience: '4 Years',
+        about: 'Jeffrey Walker is a skilled painter with a focus on interior home painting. He provides high-quality finishes and personalized color consultations.',
+        fees: 55,
+        address: {
+            line1: 'Brush Lane, Color Ville',
+            line2: 'Paint Road, Charlotte'
+        }
+    },
+    {
+        _id: 'pro26',
+        name: 'Ryan Hall',
+        image: technician4,
+        speciality: 'Technician',
+        degree: 'Associate Degree in Electronics',
+        experience: '5 Years',
+        about: 'Ryan Hall is an experienced technician specializing in smartphone and laptop repairs. He offers fast and reliable solutions to keep your devices in top condition.',
+        fees: 50,
+        address: {
+            line1: 'Tech Lane, Gadget Ville',
+            line2: 'Repair Road, Tampa'
+        }
+    },
+    {
+        _id: 'pro27',
+        name: 'Gary Allen',
+        image: carpenter5,
+        speciality: 'Carpenter',
+        degree: 'Diploma in Woodworking',
+        experience: '6 Years',
+        about: 'Gary Allen is a skilled carpenter specializing in custom furniture and home renovations. He combines traditional craftsmanship with modern designs to create beautiful spaces.',
+        fees: 70,
+        address: {
+            line1: 'Woodcraft Lane, Furniture Ville',
+            line2: 'Carpentry Road, Indianapolis'
+        }
+    },
+    {
+        _id: 'pro28',
+        name: 'Timothy Young',
+        image: machanic4,
+        speciality: 'Mechanic',
+        degree: 'Automotive Technology Certificate',
+        experience: '7 Years',
+        about: 'Timothy Young is a professional mechanic specializing in car diagnostics and repairs. He ensures your vehicle is safe and reliable with his expert service.',
+        fees: 65,
+        address: {
+            line1: 'Auto Lane, Motor Ville',
+            line2: 'Garage Road, Columbus'
+        }
+    },
+    {
+        _id: 'pro29',
+        name: 'Jose Hernandez',
+        image: barber5,
+        speciality: 'Barber',
+        degree: 'Bachelor of Fashion Design',
+        experience: '3 Years',
+        about: 'Jose Hernandez is a talented barber with a passion for modern hairstyles. He provides personalized grooming services to help clients achieve their desired look.',
+        fees: 45,
+        address: {
+            line1: 'Style Lane, Grooming Ville',
+            line2: 'Haircut Road, San Jose'
+        }
+    },
+    {
+        _id: 'pro30',
+        name: 'Larry King',
+        image: plumber5,
+        speciality: 'Plumber',
+        degree: 'Diploma in Plumbing Technology',
+        experience: '5 Years',
+        about: 'Larry King is a reliable plumber with expertise in fixing leaks and installing fixtures. He ensures prompt and efficient service for every client.',
+        fees: 60,
+        address: {
+            line1: 'Pipe Lane, Water Ville',
+            line2: 'Plumbing Road, San Francisco'
+        }
+    },
+    {
+        _id: 'pro31',
+        name: 'Scott Wright',
+        image: chef2,
+        speciality: 'Chef',
+        degree: 'Culinary Arts Degree',
+        experience: '6 Years',
+        about: 'Scott Wright is a passionate chef specializing in French cuisine. He creates delicious and visually appealing dishes using fresh and high-quality ingredients.',
+        fees: 80,
+        address: {
+            line1: 'Flavor Lane, Taste Ville',
+            line2: 'Culinary Road, Philadelphia'
+        }
+    },
+    {
+        _id: 'pro32',
+        name: 'Eric Lopez',
+        image: painter5,
+        speciality: 'Painter',
+        degree: 'Bachelor of Fine Arts',
+        experience: '4 Years',
+        about: 'Eric Lopez is a skilled painter with a focus on residential projects. He provides high-quality finishes and personalized color schemes to transform spaces.',
+        fees: 55,
+        address: {
+            line1: 'Brush Lane, Color Ville',
+            line2: 'Paint Road, Phoenix'
+        }
+    },
+    {
+        _id: 'pro33',
+        name: 'Stephen Hill',
+        image: technician5,
+        speciality: 'Technician',
+        degree: 'Associate Degree in Electronics',
+        experience: '5 Years',
+        about: 'Stephen Hill is an expert technician specializing in repairing smartphones and laptops. He offers fast and reliable solutions to keep your devices running smoothly.',
+        fees: 50,
+        address: {
+            line1: 'Tech Lane, Gadget Ville',
+            line2: 'Repair Road, San Diego'
+        }
+    },
+    {
+        _id: 'pro34',
+        name: 'Adam Green',
+        image: carpenter5,
+        speciality: 'Carpenter',
+        degree: 'Diploma in Woodworking',
+        experience: '7 Years',
+        about: 'Adam Green is a skilled carpenter specializing in custom furniture and home renovations. He combines traditional techniques with modern designs to create beautiful and functional pieces.',
+        fees: 75,
+        address: {
+            line1: 'Woodcraft Lane, Furniture Ville',
+            line2: 'Carpentry Road, Dallas'
+        }
+    },
+    {
+        _id: 'pro35',
+        name: 'William Brown',
+        image: machanic5,
+        speciality: 'Mechanic',
+        degree: 'Diploma in Fine Arts',
+        experience: '5 Years',
+        about: 'William Brown is an expert in residential and commercial painting, delivering quality finishes with artistic precision.',
+        fees: 70,
+        address: {
+            line1: 'Elm Street, Green Park',
+            line2: 'Near Metro Station, Chicago'
         }
     },
 ]
