@@ -40,7 +40,7 @@ const Testimonial = () => {
   const [prevIndex, activeIndex, nextIndex] = getTestimonialIndices();
 
   return (
-    <div className="py-16 my-10">
+    <div className="py-16 my-5">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-semibold text-center text-gray-900 mb-8">
           What Our Clients Say

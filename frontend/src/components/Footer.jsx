@@ -100,11 +100,11 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
               />
               <button
                 type="submit"
-                className="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-400 transition-colors duration-300"
+                className="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors duration-300"
               >
                 Subscribe
               </button>
