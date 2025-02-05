@@ -48,7 +48,7 @@ const Professional = () => {
                 }
                 className={`w-full px-4 py-2 rounded-md transition-all cursor-pointer ${
                   speciality === specialtyItem
-                    ? 'bg-blue-500 text-white'
+                    ? 'bg-black text-white'
                     : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                 }`}
               >
