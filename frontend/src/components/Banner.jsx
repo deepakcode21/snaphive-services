@@ -6,9 +6,11 @@ const Banner = () => {
   const navigate = useNavigate();
 
   return (
-<div className="relative flex flex-col md:flex-row bg-white rounded-2xl px-6 md:px-10 lg:px-12 
+    <div
+      className="relative flex flex-col md:flex-row bg-white rounded-2xl px-6 md:px-10 lg:px-12 
  shadow-[11px_10px_0px_rgba(0,0,0,0.85)] border-[1px] border-black my-10 mx-4 md:mx-10 
- max-w-screen-xl lg:mx-auto min-h-[200px]">
+ max-w-screen-xl lg:mx-auto min-h-[200px]"
+    >
       {/* Decorative Element */}
       <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl" />
 
@@ -34,15 +36,12 @@ const Banner = () => {
       {/*------------------- Right Side ----------------*/}
       {/* Hide on small screens, show on medium and larger screens */}
       <div className="hidden md:flex md:w-1/2 items-end justify-center">
-  <img
-    className="w-full h-auto max-h-[280px] object-contain rounded-lg"
-    src={assets.booking_img}
-    alt="Booking"
-  />
-</div>
-
-
-
+        <img
+          className="w-full h-auto max-h-[280px] object-contain rounded-lg"
+          src={assets.booking_img}
+          alt="Booking"
+        />
+      </div>
     </div>
   );
 };
