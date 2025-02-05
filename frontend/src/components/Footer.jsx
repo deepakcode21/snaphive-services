@@ -11,9 +11,7 @@ const Footer = () => {
           <div className="space-y-6">
             <img className="w-40" src={assets.logo} alt="SnapHive Logo" />
             <p className="text-gray-600 leading-relaxed">
-              At SnapHive, we bring the best professionals to your doorstep.
-              Whether you need a plumber, electrician, beautician, or fitness
-              trainer, we’ve got you covered. Our platform is designed to make
+              Our platform is designed to make
               your life easier by connecting you with trusted, skilled
               professionals in just a few clicks.
             </p>
@@ -89,7 +87,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold text-gray-900">GET IN TOUCH</h3>
             <ul className="space-y-3">
               <li className="text-gray-600">+91-XXXX-XXXX-XX</li>
-              <li className="text-gray-600">deepakcode21@gmail.com</li>
+              <li className="text-gray-600">deepak@gmail.com</li>
             </ul>
           </div>
 
@@ -106,7 +104,7 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+                className="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-400 transition-colors duration-300"
               >
                 Subscribe
               </button>
