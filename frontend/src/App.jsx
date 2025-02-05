@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/professional" element={<Professional />} />
           <Route path="/my-bookings" element={<MyBookings />} />
           <Route path="/booking/:proId" element={<Booking />} />
-          <Route path="/professional/:services" element={<Professional />} />
+          <Route path="/professional/:speciality" element={<Professional />} />
         </Routes>
       </div>
 

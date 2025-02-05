@@ -21,7 +21,7 @@ const Header = () => {
         </div>
         <a
           className="flex items-center gap-2 bg-black px-8 py-3 rounded-full text-white text-sm m-auto md:m-0 hover:scale-105 transition-all duration-300"
-          href="#category"
+          href="#speciality"
         >
           Book Service <img className="w-3" src={assets.arrow_icon} alt="" />
         </a>

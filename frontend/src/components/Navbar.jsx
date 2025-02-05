@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-gray-200 bg-white shadow-sm px-4 md:px-8">
       {/* Logo */}
-      <img
+      <img 
         className="w-44 cursor-pointer"
         src={assets.logo}
         alt="Logo"

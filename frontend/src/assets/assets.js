@@ -114,7 +114,7 @@ export const categoryData = [
   },
   {
     _id: "machanic",
-    speciality: "Machanic",
+    speciality: "Mechanic",
     image: machanic,
   },
   {
