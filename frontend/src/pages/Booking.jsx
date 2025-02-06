@@ -12,6 +12,9 @@ const Booking = () => {
   const [proInfo, setProInfo] = useState(null);
   const [slotIndex, setSlotIndex] = useState(0);
   const [slotTime, setSlotTime] = useState("");
+  // Initialize state for rating and reviews
+  const [rating, setRating] = useState(0);
+  const [reviews, setReviews] = useState(0);
 
   // Fetch professional info
   useEffect(() => {
@@ -60,6 +63,14 @@ const Booking = () => {
     return slots;
   }, [proInfo]);
 
+  useEffect(() => {
+    const randomRating = (Math.random() * 1.5 + 3.5).toFixed(1); // 3.5 to 5.0 // Generate a random rating between 3.5 and 5.0
+    const randomReviews = Math.floor(Math.random() * 400) + 101; // 101 to 500 // Generate random reviews between 101 and 500
+
+    setRating(parseFloat(randomRating));
+    setReviews(randomReviews);
+  }, []);
+
   if (!proInfo) {
     return (
       <div className="animate-pulse p-6">
@@ -102,6 +113,33 @@ const Booking = () => {
             </button>
           </div>
 
+          {/* Review Section */}
+          <div className="mt-2 mb-2">
+            {" "}
+            {/* Reduced top and bottom margin */}
+            <div className="flex items-center">
+              <div className="flex space-x-1">
+                {" "}
+                {/* Reduced spacing between stars */}
+                {[...Array(5)].map((_, index) => (
+                  <span
+                    key={index}
+                    className={`text-lg ${
+                      index < Math.floor(rating)
+                        ? "text-black"
+                        : "text-gray-400"
+                    }`}
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
+              <p className="text-gray-700 text-xs md:text-sm ml-1">
+                {rating} ({reviews} reviews)
+              </p>
+            </div>
+          </div>
+
           {/* About Section */}
           <div className="mt-4">
             <p className="flex items-center gap-1 text-lg md:text-xl font-medium text-gray-900">
@@ -137,7 +175,7 @@ const Booking = () => {
                 className={`flex flex-col items-center justify-center min-w-16 py-3 rounded-lg cursor-pointer transition-colors ${
                   slotIndex === index
                     ? "bg-black text-white" // Selected state
-                    : "bg-white text-gray-900 border border-black hover:bg-gray-100"
+                    : "bg-white text-gray-900 border border-black hover:bg-gray-200"
                 }`}
                 key={index}
               >
@@ -161,7 +199,7 @@ const Booking = () => {
                 className={`text-sm font-medium flex-shrink-0 px-5 py-2 rounded-full cursor-pointer transition-colors ${
                   item.time === slotTime
                     ? "bg-black text-white"
-                    : "bg-white text-gray-900 border border-black hover:bg-gray-100"
+                    : "bg-white text-gray-900 border border-black hover:bg-gray-200"
                 }`}
                 key={index}
               >
@@ -172,7 +210,7 @@ const Booking = () => {
         </div>
 
         {/* Book Button */}
-        <button className="w-full sm:w-auto mt-6 bg-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-900 transition-colors">
+        <button className="mt-6 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
           Book Your Visit
         </button>
       </div>

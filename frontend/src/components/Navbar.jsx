@@ -18,7 +18,7 @@ const Navbar = () => {
       />
 
       {/* Desktop Menu */}
-      <ul className="hidden md:flex items-center gap-8 font-medium">
+      <ul className="hidden md:flex items-center gap-8 font-medium text-lg">
         <NavLink
           to="/"
           className={({ isActive }) =>

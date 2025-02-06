@@ -10,7 +10,7 @@ const TopProfessional = () => {
     <div className="flex flex-col items-center gap-6 my-5 text-gray-900 md:mx-10">
       <h1 className="text-3xl text-center sm:w-1/2 font-medium">Top Professionals</h1>
       <p className="sm:w-1/3 text-center text-sm text-gray-600">
-        Simply browse through our extensive list of trusted doctors.
+        Simply browse through our extensive list of trusted professionals.
       </p>
 
       {/* Responsive Grid with Improved Styling */}
@@ -40,7 +40,7 @@ const TopProfessional = () => {
               <p className="text-gray-900 text-lg font-semibold">{item.name}</p>
               <p className="text-gray-600 text-sm">{item.speciality}</p>
               <div className="flex items-center gap-2 mt-2">
-                <span className="text-yellow-400">★</span>
+                <span className="text-black">★</span>
                 <span className="text-sm text-gray-600">{item.rating || "4.5"}</span>
                 <span className="text-sm text-gray-400">({item.reviews || "100"} reviews)</span>
               </div>
@@ -49,7 +49,7 @@ const TopProfessional = () => {
         ))}
       </div>
 
-      {/* Improved Button Styling */}
+      {/* Button Styling */}
       <button
         className="mt-6 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         onClick={() => {navigate("/professional"); scrollTo(0,0)}}

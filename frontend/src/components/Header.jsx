@@ -20,10 +20,16 @@ const Header = () => {
           </p>
         </div>
         <a
-          className="flex items-center gap-2 bg-black px-8 py-3 rounded-full text-white text-sm m-auto md:m-0 hover:scale-105 transition-all duration-300"
+          className="mt-6 px-6 py-2 bg-black text-white rounded-lg flex items-center gap-2 hover:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           href="#speciality"
         >
-          Book Service <img className="w-3" src={assets.arrow_icon} alt="" />
+          Book Service
+          <img
+            className="w-3"
+            src={assets.arrow_icon}
+            alt=""
+            style={{ filter: "invert(1)" }}
+          />
         </a>
       </div>
 

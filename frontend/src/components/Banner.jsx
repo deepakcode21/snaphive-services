@@ -27,8 +27,7 @@ const Banner = () => {
             navigate("/login");
             scrollTo(0, 0);
           }}
-          className="flex items-center gap-2 bg-black px-6 sm:px-8 py-2 sm:py-3 rounded-full text-white text-sm sm:text-base hover:scale-105 transition-all duration-300"
-        >
+          className="mt-6 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"        >
           Create Account
         </button>
       </div>

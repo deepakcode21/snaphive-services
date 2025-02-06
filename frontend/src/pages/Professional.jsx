@@ -85,7 +85,7 @@ const Professional = () => {
                       <p className="text-gray-900 text-lg font-semibold">{item.name}</p>
                       <p className="text-gray-600 text-sm">{item.speciality}</p>
                       <div className="flex items-center gap-2 mt-2">
-                        <span className="text-yellow-400">★</span>
+                        <span className="text-black">★</span>
                         <span className="text-sm text-gray-600">{item.rating || "4.5"}</span>
                         <span className="text-sm text-gray-400">({item.reviews || "100"} reviews)</span>
                       </div>
