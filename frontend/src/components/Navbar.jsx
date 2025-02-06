@@ -145,7 +145,7 @@ const Navbar = () => {
               alt="Profile"
             />
             <img className="w-2.5" src={assets.dropdown_icon} alt="Dropdown" />
-            <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg overflow-hidden z-20 hidden group-hover:block">
+            <div className="absolute top-10 right-0 bg-white shadow-lg rounded-lg overflow-hidden z-20 hidden group-hover:block">
               <div className="min-w-48 flex flex-col gap-2 p-4">
                 <p
                   onClick={() => {

@@ -3,7 +3,7 @@ import header_img from "./header_img.png";
 import group_profiles from "./group_profiles.png";
 import profile_pic from "./profile_pic.png";
 import contact_image from "./contact_image.png";
-import about_image from "./about_image.png";
+import about_image from "./about_img.jpg";
 import logo from "./logo.svg";
 import dropdown_icon from "./dropdown_icon.svg";
 import menu_icon from "./menu_icon.svg";
