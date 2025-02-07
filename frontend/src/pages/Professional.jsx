@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
-import { motion } from "framer-motion"; // For animations
 
 const Professional = () => {
   const { speciality } = useParams();
@@ -11,7 +10,9 @@ const Professional = () => {
 
   const applyFilter = () => {
     if (speciality) {
-      setFilterPro(Professionals.filter((pro) => pro.speciality === speciality));
+      setFilterPro(
+        Professionals.filter((pro) => pro.speciality === speciality)
+      );
     } else {
       setFilterPro(Professionals);
     }
@@ -21,33 +22,14 @@ const Professional = () => {
     applyFilter();
   }, [Professionals, speciality]);
 
-  // Animation variants
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-
-
   return (
     <div className="text-gray-800 p-4">
-      <motion.p
-        className="text-lg font-semibold mb-4"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-      >
+      <p className="text-lg font-semibold mb-4">
         Browse through the professionals by specialty.
-      </motion.p>
-
+      </p>
       <div className="flex flex-col sm:flex-row items-start gap-5 mt-5">
-        {/*------------ Right Side (Filter Section) ----------*/}
-        <motion.div
-          className="w-full sm:w-64 rounded-lg p-4"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-        >
+        {/*------------------------------ Right Side (Filter Section) ------------------------------*/}
+        <div className="w-full sm:w-64 rounded-lg p-4">
           <h3 className="text-lg font-semibold mb-4">Filter by Specialty</h3>
           <div className="flex flex-col gap-3">
             {[
@@ -58,8 +40,8 @@ const Professional = () => {
               "Mechanic",
               "Carpenter",
               "Technician",
-            ].map((specialtyItem, index) => (
-              <motion.div
+            ].map((specialtyItem) => (
+              <div
                 key={specialtyItem}
                 onClick={() =>
                   speciality === specialtyItem
@@ -71,40 +53,27 @@ const Professional = () => {
                     ? "bg-black text-white"
                     : "bg-white hover:bg-gray-200 text-gray-700"
                 }`}
-                variants={fadeInUp}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 {specialtyItem}
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
-
-        {/*------ Left Side (Professional Cards) ------*/}
+        </div>
+        {/*------------------------------- Left Side ------------------------------*/}
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-3 sm:px-0 pt-6">
           {filterPro.map((item, index) => (
-            <motion.div
-              key={index}
-              onClick={() => {
-                navigate(`/booking/${item._id}`);
-                scrollTo(0, 0);
-              }}
+            <div
+              onClick={() => navigate(`/booking/${item._id}`)}
               className="border-[1px] border-black rounded-xl overflow-hidden cursor-pointer shadow-[11px_10px_0px_rgba(0,0,0,0.85)] hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              key={index}
             >
               {/* Improved Image Handling */}
               <div className="w-full h-48 md:h-56 overflow-hidden flex items-center justify-center">
-                <motion.img
+                <img
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
                   src={item.image}
                   alt={item.name}
                   style={{ objectPosition: "top center" }} // Ensure the face is centered
-                  whileHover={{ scale: 1.1 }}
                 />
               </div>
 
@@ -128,7 +97,7 @@ const Professional = () => {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

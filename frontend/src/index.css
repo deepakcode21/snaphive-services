@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #EEEEEE;
-  color: white;
+  color: black;
 }
 
 html, body, #root {
@@ -20,10 +20,10 @@ html, body, #root {
 
 
 
-  .active hr{
-    @apply block
+.active hr{
+  @apply block
 }
 
 ::-webkit-scrollbar{
-    @apply hidden
+  @apply hidden
 }
