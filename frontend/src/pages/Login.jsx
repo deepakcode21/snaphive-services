@@ -12,16 +12,16 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center  w-full overflow-hidden relative p-4">
+    <div className="h-auto flex items-center justify-center  w-full overflow-hidden relative p-4">
       <motion.div
-        className="relative flex w-full max-w-6xl h-[90vh] md:h-[70vh] shadow-lg rounded-lg overflow-hidden"
+        className="relative  flex w-full  max-w-6xl h-[90vh] md:h-[70vh] shadow-lg rounded-lg overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         {/* Left Side - Hidden on Mobile */}
         <motion.div
-          className={`hidden md:block absolute inset-0 w-1/2 bg-black text-white flex flex-col justify-center items-center p-6 md:p-10 transition-all duration-700 ease-in-out ${
+          className={`hidden  md:block absolute inset-0 w-1/2 bg-black text-white flex flex-col justify-center items-center p-6 md:p-10 transition-all duration-700 ease-in-out ${
             state === "Login" ? "translate-x-full" : "translate-x-0"
           }`}
           style={{ zIndex: state === "Login" ? 1 : 2 }} // Higher z-index when visible
