@@ -12,7 +12,6 @@ const Booking = () => {
   const [proInfo, setProInfo] = useState(null);
   const [slotIndex, setSlotIndex] = useState(0);
   const [slotTime, setSlotTime] = useState("");
-  // Initialize state for rating and reviews
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState(0);
 
