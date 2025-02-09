@@ -29,7 +29,7 @@ const Login = () => {
           {/* Centered Content with Top Margin */}
           <div className="text-center mt-35">
             {" "}
-            {/* Added mt-10 for top margin */}
+            {/* Added mt-5 for top margin */}
             <h2 className="text-3xl font-bold">Welcome to SnapHive</h2>
             <p className="mt-5 text-gray-300 max-w-md mx-auto">
               Join SnapHive today and unlock a world of convenience. Sign up to
