@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div
       className="relative flex flex-col md:flex-row bg-white rounded-2xl px-6 md:px-10 lg:px-12 
- shadow-[11px_10px_0px_rgba(0,0,0,0.85)] border-[1px] border-black my-10 mx-4 md:mx-10 
+ shadow-[11px_10px_0px_rgba(0,0,0,0.70)] border-[1px] border-black my-10 mx-4 md:mx-10 
  max-w-screen-xl lg:mx-auto min-h-[200px]"
     >
       {/* Decorative Element */}
