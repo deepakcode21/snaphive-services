@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Login from "./pages/Login";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { AdminContext } from "./context/AdminContext";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
@@ -14,18 +14,21 @@ const App = () => {
   const { aToken } = useContext(AdminContext);
 
   return aToken ? (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <ToastContainer />
       <Navbar />
-      <div className="flex items-start">
+      <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-        <Routes>
-          <Route path='/' element ={<></>}/>
-          <Route path='/admin-dashboard' element ={<Dashboard />}/>
-          <Route path='/all-bookings' element ={<ALLBookings />}/>
-          <Route path='/add-professional' element ={<AddPro />}/>
-          <Route path='/pro-list' element ={<ProList />}/>
-        </Routes>
+        {/* Main Content Area */}
+        <main className="flex-1 overflow-y-auto p-5 bg-gray-100">
+          <Routes>
+            <Route path="/" element={<></>} />
+            <Route path="/admin-dashboard" element={<Dashboard />} />
+            <Route path="/all-bookings" element={<ALLBookings />} />
+            <Route path="/add-professional" element={<AddPro />} />
+            <Route path="/pro-list" element={<ProList />} />
+          </Routes>
+        </main>
       </div>
     </div>
   ) : (

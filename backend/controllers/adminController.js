@@ -115,4 +115,15 @@ const loginAdmin = async (req, res) => {
   }
 };
 
-export { addProfessional, loginAdmin };
+//Api to get all professional list for admin panel
+const allProfessionals = async (req, res) => {
+
+  try{
+    const professionals = await professionalModel.find({}).select('-password')
+    res.json({success:true, professionals})
+  }catch(error){
+    res.json({success:false, message:error.message})
+  }
+}
+
+export { addProfessional, loginAdmin, allProfessionals };
