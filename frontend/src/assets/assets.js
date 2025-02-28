@@ -640,10 +640,10 @@ export const Professionals = [
     name: "William Brown",
     image: machanic5,
     speciality: "Mechanic",
-    degree: "Diploma in Fine Arts",
+    degree: "Automotive Technology Certificate",
     experience: "5 Years",
     about:
-      "William Brown is an expert in residential and commercial painting, delivering quality finishes with artistic precision.",
+      "William Brown is a professional mechanic specializing in car diagnostics and repairs. He ensures your vehicle is safe and reliable with his expert service.",
     fees: 70,
     address: {
       line1: "Elm Street, Green Park",
