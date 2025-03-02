@@ -30,7 +30,7 @@ const App = () => {
           <Route path="/my-profile" element={<MyProfile />} />
           <Route path="/professional" element={<Professional />} />
           <Route path="/my-bookings" element={<MyBookings />} />
-          <Route path="/booking/:proID" element={<Booking />} />
+          <Route path="/booking/:proId" element={<Booking />} />
           <Route path="/professional/:speciality" element={<Professional />} />
         </Routes>
       </div>

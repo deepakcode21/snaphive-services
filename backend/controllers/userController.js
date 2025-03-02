@@ -114,7 +114,11 @@ const updateProfile = async (req, res) => {
 const userBooking = async (req, res) => {
   try {
     const { userId, proId, slotDate, slotTime } = req.body;
-    const proData = await bookingModel.findById(proId).select("-password");
+    const proData = await professionalModel.findById(proId).select("-password");
+
+    if (!proData) {
+      return res.json({ success: false, message: "Professional not found" });
+    }
 
     if (!proData.available) {
       return res.json({
@@ -126,7 +130,7 @@ const userBooking = async (req, res) => {
     let slots_booked = proData.slots_booked;
 
     if (slots_booked[slotDate]) {
-      if (slots_booked[slots_booked].includes(slotTime)) {
+      if (slots_booked[slotDate].includes(slotTime)) {
         return res.json({ success: false, message: "Slot not available" });
       } else {
         slots_booked[slotDate].push(slotTime);
@@ -139,6 +143,9 @@ const userBooking = async (req, res) => {
     const userData = await userModel.findById(userId).select("-password");
     delete proData.slots_booked;
 
+    // ✅ Fix: Store date in DD/MM/YYYY format
+    const formattedDate = new Date(slotDate).toLocaleDateString("en-GB"); // "03/06/2025"
+
     const bookingData = {
       userId,
       proId,
@@ -146,7 +153,7 @@ const userBooking = async (req, res) => {
       proData,
       amount: proData.fees,
       slotTime,
-      slotDate,
+      slotDate: formattedDate, // Save formatted date
       date: Date.now(),
     };
 
@@ -154,14 +161,69 @@ const userBooking = async (req, res) => {
 
     await newBooking.save();
 
-    //save new slots data in proData
+    // Save new slots data in proData
     await professionalModel.findByIdAndUpdate(proId, { slots_booked });
-    res.json({ success: true, message: "Booking Successfull" });
-    
+
+    res.json({ success: true, message: "Booking Successful" });
   } catch (error) {
     console.error(error);
     res.json({ success: false, message: error.message });
   }
 };
 
-export { registerUser, loginUser, getProfile, updateProfile, userBooking };
+const listBooking = async (req, res) => {
+
+  try{
+
+    const {userId} = req.body
+    const bookings = await bookingModel.find({userId})
+
+    res.json({success:true, bookings})
+
+  } catch (error) {
+    console.log(error)
+    res.json({success:false, message:error.message})
+  }
+
+}
+
+const cancelBooking = async (req, res) => {
+
+  try {
+
+    const { userId, bookingId } = req.body;
+    const bookingData = await bookingModel.findById(bookingId);
+
+    if (bookingData.userId !== userId) {
+      return res.json({ success: false, message: "Unauthorized action" });
+    }
+
+    await bookingModel.findByIdAndUpdate(bookingId, { cancelled: true });
+    const { proId, slotDate, slotTime } = bookingData;
+    const proData = await professionalModel.findById(proId);
+
+    if (proData.slots_booked && proData.slots_booked[slotDate]) {
+
+      proData.slots_booked[slotDate] = proData.slots_booked[slotDate].filter(
+        (e) => e !== slotTime
+      );
+
+      if (proData.slots_booked[slotDate].length === 0) {
+        delete proData.slots_booked[slotDate];
+      }
+      await professionalModel.findByIdAndUpdate(proId, {
+        slots_booked: proData.slots_booked,
+      });
+    }
+
+    res.json({ success: true, message: "Booking Cancelled" });
+  } catch (error) {
+    console.error(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+
+
+
+export { registerUser, loginUser, getProfile, updateProfile, userBooking, listBooking, cancelBooking };
