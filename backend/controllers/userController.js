@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import { v2 as cloudinary } from "cloudinary";
 import bookingModel from "../models/bookingModel.js";
 import professionalModel from "../models/professionalModel.js";
+import razorpay from "razorpay";
 
 const registerUser = async (req, res) => {
   try {
@@ -116,22 +117,17 @@ const userBooking = async (req, res) => {
     const { userId, proId, slotDate, slotTime } = req.body;
     const proData = await professionalModel.findById(proId).select("-password");
 
-    if (!proData) {
-      return res.json({ success: false, message: "Professional not found" });
-    }
-
-    if (!proData.available) {
+    if (!proData.available)
       return res.json({
         success: false,
         message: "Professional not available",
       });
-    }
 
     let slots_booked = proData.slots_booked;
 
     if (slots_booked[slotDate]) {
       if (slots_booked[slotDate].includes(slotTime)) {
-        return res.json({ success: false, message: "Slot not available" });
+        return res.json({ success: false, message: "Slot Not Available" });
       } else {
         slots_booked[slotDate].push(slotTime);
       }
@@ -139,12 +135,10 @@ const userBooking = async (req, res) => {
       slots_booked[slotDate] = [];
       slots_booked[slotDate].push(slotTime);
     }
+    slots_booked[slotDate].push(slotTime);
 
     const userData = await userModel.findById(userId).select("-password");
     delete proData.slots_booked;
-
-    // ✅ Fix: Store date in DD/MM/YYYY format
-    const formattedDate = new Date(slotDate).toLocaleDateString("en-GB"); // "03/06/2025"
 
     const bookingData = {
       userId,
@@ -153,18 +147,19 @@ const userBooking = async (req, res) => {
       proData,
       amount: proData.fees,
       slotTime,
-      slotDate: formattedDate, // Save formatted date
+      slotDate,
       date: Date.now(),
     };
 
     const newBooking = new bookingModel(bookingData);
-
     await newBooking.save();
 
-    // Save new slots data in proData
     await professionalModel.findByIdAndUpdate(proId, { slots_booked });
 
-    res.json({ success: true, message: "Booking Successful" });
+    res.json({
+      success: true,
+      message: "Booking Successful",
+    });
   } catch (error) {
     console.error(error);
     res.json({ success: false, message: error.message });
@@ -172,58 +167,115 @@ const userBooking = async (req, res) => {
 };
 
 const listBooking = async (req, res) => {
+  try {
+    const { userId } = req.body;
+    const bookings = await bookingModel.find({ userId });
 
-  try{
-
-    const {userId} = req.body
-    const bookings = await bookingModel.find({userId})
-
-    res.json({success:true, bookings})
+    res.json({ success: true, bookings });
 
   } catch (error) {
-    console.log(error)
-    res.json({success:false, message:error.message})
+    console.log(error);
+    res.json({ success: false, message: error.message });
   }
-
-}
+};
 
 const cancelBooking = async (req, res) => {
 
   try {
-
     const { userId, bookingId } = req.body;
     const bookingData = await bookingModel.findById(bookingId);
 
+  
     if (bookingData.userId !== userId) {
       return res.json({ success: false, message: "Unauthorized action" });
     }
 
     await bookingModel.findByIdAndUpdate(bookingId, { cancelled: true });
+
     const { proId, slotDate, slotTime } = bookingData;
     const proData = await professionalModel.findById(proId);
 
-    if (proData.slots_booked && proData.slots_booked[slotDate]) {
+    let slots_booked = proData.slots_booked
 
-      proData.slots_booked[slotDate] = proData.slots_booked[slotDate].filter(
-        (e) => e !== slotTime
-      );
+    slots_booked[slotDate] = slots_booked[slotDate].filter(e => e !== slotTime)
+    
+    await professionalModel.findByIdAndUpdate(proId, { slots_booked })
 
-      if (proData.slots_booked[slotDate].length === 0) {
-        delete proData.slots_booked[slotDate];
-      }
-      await professionalModel.findByIdAndUpdate(proId, {
-        slots_booked: proData.slots_booked,
+    res.json({
+      success: true,
+      message: "Booking Cancelled",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const razorpayInstance = new razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
+});
+
+// Payment
+const paymentRazorpay = async (req, res) => {
+  try {
+    const { bookingId } = req.body;
+    const bookingData = await bookingModel.findById(bookingId);
+
+    if (!bookingData || bookingData.cancelled) {
+      return res.json({
+        success: false,
+        message: "Booking Cancelled or Not Found",
       });
     }
 
-    res.json({ success: true, message: "Booking Cancelled" });
+    const options = {
+      amount: bookingData.amount * 100, // Ensure amount is in paise
+      currency: process.env.CURRENCY || "INR",
+      receipt: bookingId,
+    };
+
+    // Create order using Razorpay instance
+    const order = await razorpayInstance.orders.create(options);
+
+    if (!order || !order.id) {
+      return res.json({ success: false, message: "Failed to create order" });
+    }
+
+    res.json({ success: true, order }); // Send order with valid ID
   } catch (error) {
-    console.error(error);
+    console.error("Razorpay Order Error:", error);
     res.json({ success: false, message: error.message });
   }
 };
 
 
+const verifyRazorpay = async (req, res) => {
+  try {
+      const { razorpay_order_id } = req.body
+      const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
 
+      if (orderInfo.status === 'paid') {
+          await bookingModel.findByIdAndUpdate(orderInfo.receipt, { payment: true })
+          res.json({ success: true, message: "Payment Successful" })
+      }
+      else {
+          res.json({ success: false, message: 'Payment Failed' })
+      }
+  } catch (error) {
+      console.log(error)
+      res.json({ success: false, message: error.message })
+  }
+}
 
-export { registerUser, loginUser, getProfile, updateProfile, userBooking, listBooking, cancelBooking };
+export {
+  registerUser,
+  loginUser,
+  getProfile,
+  updateProfile,
+  userBooking,
+  listBooking,
+  cancelBooking,
+  paymentRazorpay,
+  verifyRazorpay
+};

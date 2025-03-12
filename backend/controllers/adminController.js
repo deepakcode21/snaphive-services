@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import { v2 as cloudinary } from "cloudinary";
 import professionalModel from "../models/professionalModel.js";
 import jwt from "jsonwebtoken";
+import bookingModel from "../models/bookingModel.js"
 
 const addProfessional = async (req, res) => {
   try {
@@ -126,4 +127,18 @@ const allProfessionals = async (req, res) => {
   }
 }
 
-export { addProfessional, loginAdmin, allProfessionals };
+// Api to get all Professional list
+const bookingsAdmin = async (req, res) => {
+  try {
+
+      const bookings = await bookingModel.find({})
+      res.json({ success: true, bookings })
+
+  } catch (error) {
+      console.log(error)
+      res.json({ success: false, message: error.message })
+  }
+
+}
+
+export { addProfessional, loginAdmin, allProfessionals, bookingsAdmin };
