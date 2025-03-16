@@ -29,14 +29,12 @@ const MyBookings = () => {
 
   const slotDateFormat = (slotDate) => {
     const dateArray = slotDate.split("_");
-    return (
-      dateArray[0] + " " + months[Number(dateArray[1])] + " " + dateArray[2]
-    );
+    return `${dateArray[0]} ${months[Number(dateArray[1])]} ${dateArray[2]}`;
   };
 
   const getUserBookings = async () => {
     try {
-      const { data } = await axios.get(backendUrl + "/api/user/my-bookings", {
+      const { data } = await axios.get(`${backendUrl}/api/user/my-bookings`, {
         headers: { token },
       });
       setBookings(data.bookings.reverse());
@@ -49,7 +47,7 @@ const MyBookings = () => {
   const cancelBooking = async (bookingId) => {
     try {
       const { data } = await axios.post(
-        backendUrl + "/api/user/cancel-booking",
+        `${backendUrl}/api/user/cancel-booking`,
         { bookingId },
         { headers: { token } }
       );
@@ -81,11 +79,9 @@ const MyBookings = () => {
       order_id: order.id,
       receipt: order.receipt,
       handler: async (response) => {
-        console.log(response);
-
         try {
           const { data } = await axios.post(
-            backendUrl + "/api/user/verifyRazorpay",
+            `${backendUrl}/api/user/verifyRazorpay`,
             response,
             { headers: { token } }
           );
@@ -103,16 +99,13 @@ const MyBookings = () => {
     rzp.open();
   };
 
-  // Function to make payment using razorpay
   const bookingRazorpay = async (bookingId) => {
     try {
       const { data } = await axios.post(
-        backendUrl + "/api/user/payment-razorpay",
+        `${backendUrl}/api/user/payment-razorpay`,
         { bookingId },
         { headers: { token } }
       );
-
-      console.log("Backend Response:", data); // Debugging
 
       if (data.success) {
         initPay(data.order);
@@ -132,21 +125,21 @@ const MyBookings = () => {
   }, [token]);
 
   return (
-    <div>
-      <p className="pb-3 mt-12 text-lg font-medium text-gray-600 border-b">
+    <div className="p-6 min-h-screen">
+      <p className="pb-3 text-2xl text-center font-bold text-black border-b border-gray-200">
         My Bookings
       </p>
-      <div className="">
+      <div className="mt-6 max-w-6xl mx-auto space-y-6"> 
         {bookings.map((item, index) => (
           <div
             key={index}
-            className="grid grid-cols-[1fr_2fr] gap-4 sm:flex sm:gap-6 py-4 border-b"
+            className="flex flex-col sm:flex-row gap-4 p-6 bg-white rounded-lg  shadow-[11px_10px_0px_rgba(0,0,0,0.70)] hover:shadow-md transition-shadow duration-300 border border-white"
           >
-            <div>
+            <div className="flex-shrink-0">
               <img
-                className="w-36 bg-[#EAEFFF]"
+                className="w-36 h-36 object-cover rounded-lg bg-[#EAEFFF]"
                 src={item.proData.image}
-                alt=""
+                alt={item.proData.name}
               />
             </div>
             <div className="flex-1 text-sm text-[#5E5E5E]">
@@ -154,25 +147,24 @@ const MyBookings = () => {
                 {item.proData.name}
               </p>
               <p>{item.proData.speciality}</p>
-              <p className="text-[#464646] font-medium mt-1">Address:</p>
-              <p className="">{item.proData.address.line1}</p>
-              <p className="">{item.proData.address.line2}</p>
-              <p className=" mt-1">
+              <p className="text-[#464646] font-medium mt-2">Address:</p>
+              <p>{item.proData.address.line1}</p>
+              <p>{item.proData.address.line2}</p>
+              <p className="mt-2">
                 <span className="text-sm text-[#3C3C3C] font-medium">
                   Date & Time:
                 </span>{" "}
                 {slotDateFormat(item.slotDate)} | {item.slotTime}
               </p>
             </div>
-            <div></div>
-            <div className="flex flex-col gap-2 justify-end text-sm text-center">
+            <div className="flex flex-col gap-2 text-sm text-center sm:w-48">
               {!item.cancelled &&
                 !item.payment &&
                 !item.isCompleted &&
                 payment !== item._id && (
                   <button
                     onClick={() => setPayment(item._id)}
-                    className="text-[#696969] sm:min-w-48 py-2 border rounded hover:bg-primary hover:text-white transition-all duration-300"
+                    className="text-[#696969] w-full py-2 border rounded-lg hover:bg-black hover:text-white transition-all duration-300 hover:shadow-md"
                   >
                     Pay Online
                   </button>
@@ -183,38 +175,36 @@ const MyBookings = () => {
                 payment === item._id && (
                   <button
                     onClick={() => bookingRazorpay(item._id)}
-                    className="text-[#696969] sm:min-w-48 py-2 border rounded hover:bg-gray-100 hover:text-white transition-all duration-300 flex items-center justify-center"
+                    className="text-[#696969] w-full py-2 border rounded-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center hover:shadow-md"
                   >
                     <img
                       className="max-w-20 max-h-5"
                       src={assets.razorpay_logo}
-                      alt=""
+                      alt="Razorpay"
                     />
                   </button>
                 )}
               {!item.cancelled && item.payment && !item.isCompleted && (
-                <button className="sm:min-w-48 py-2 border rounded text-[#696969]  bg-[#EAEFFF]">
-                  Paid
+                <button className="w-full py-2 border rounded-lg text-blue-800 bg-blue-50">
+                  Paid Success
                 </button>
               )}
-
               {item.isCompleted && (
-                <button className="sm:min-w-48 py-2 border border-green-500 rounded text-green-500">
+                <button className="w-full py-2 border bg-green-50 border-green-500 rounded-lg text-green-700 font-bold">
                   Completed
                 </button>
               )}
-
               {!item.cancelled && !item.isCompleted && (
                 <button
                   onClick={() => cancelBooking(item._id)}
-                  className="text-[#696969] sm:min-w-48 py-2 border rounded hover:bg-red-600 hover:text-white transition-all duration-300"
+                  className="text-[#696969] w-full py-2 border rounded-lg hover:bg-red-600 hover:text-white transition-all duration-300 hover:shadow-md"
                 >
-                  Cancel appointment
+                  Cancel Booking
                 </button>
               )}
               {item.cancelled && !item.isCompleted && (
-                <button className="sm:min-w-48 py-2 border border-red-500 rounded text-red-500">
-                  Appointment cancelled
+                <button className="w-full py-2 border border-red-500 rounded-lg text-red-500">
+                  Booking cancelled
                 </button>
               )}
             </div>
@@ -223,6 +213,7 @@ const MyBookings = () => {
       </div>
     </div>
   );
+  
 };
 
 export default MyBookings;
