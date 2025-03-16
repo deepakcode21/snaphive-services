@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { backendUrl, token, setToken } = useContext(AppContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [state, setState] = useState("Sign Up"); // Initial state set to "Login"
   const [email, setEmail] = useState("");
@@ -47,11 +47,11 @@ const Login = () => {
     }
   };
 
-  useEffect(()=>{
-    if(token){
-      navigate('/')
+  useEffect(() => {
+    if (token) {
+      navigate("/");
     }
-  },[token])
+  }, [token]);
 
   return (
     <div className="h-auto flex items-center justify-center  w-full overflow-hidden relative p-4">

@@ -78,8 +78,7 @@ const Contact = () => {
               Learn more about our teams and job openings.
             </p>
             <motion.button
-                className="bg-black text-white my-3 py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors duration-300"
-              
+              className="bg-black text-white my-3 py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors duration-300"
               onClick={() => {
                 navigate("/");
                 scrollTo(0, 0);

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Import icons for navigation
-import { testimonials } from '../assets/assets'; // Import testimonials from assets
+import React, { useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Import icons for navigation
+import { testimonials } from "../assets/assets"; // Import testimonials from assets
 
 const Testimonial = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(1); // Start with the center testimonial
-  const [direction, setDirection] = useState(''); // To track swipe direction
+  const [direction, setDirection] = useState(""); // To track swipe direction
 
   // Automatically cycle through testimonials
   useEffect(() => {
     const interval = setInterval(() => {
-      setDirection('next');
+      setDirection("next");
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000); // Change testimonial every 5 seconds
 
@@ -18,12 +18,12 @@ const Testimonial = () => {
 
   // Handle manual navigation
   const goToNext = () => {
-    setDirection('next');
+    setDirection("next");
     setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
   };
 
   const goToPrev = () => {
-    setDirection('prev');
+    setDirection("prev");
     setActiveTestimonial((prev) =>
       prev === 0 ? testimonials.length - 1 : prev - 1
     );
@@ -65,9 +65,9 @@ const Testimonial = () => {
             {/* Previous Testimonial */}
             <div
               className={`w-1/4 md:w-1/3 opacity-50 transform scale-90 transition-all duration-500 ease-in-out ${
-                direction === 'next'
-                  ? 'animate-slide-out-prev'
-                  : 'animate-slide-in-prev'
+                direction === "next"
+                  ? "animate-slide-out-prev"
+                  : "animate-slide-in-prev"
               }`}
             >
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-[11px_10px_0px_rgba(0,0,0,0.85)] border-[1px] border-black h-56 md:h-80 flex flex-col justify-center overflow-y-auto">
@@ -93,9 +93,9 @@ const Testimonial = () => {
             {/* Active Testimonial */}
             <div
               className={`w-1/2 md:w-1/3 transition-all duration-500 ease-in-out ${
-                direction === 'next'
-                  ? 'animate-slide-in-next'
-                  : 'animate-slide-in-prev'
+                direction === "next"
+                  ? "animate-slide-in-next"
+                  : "animate-slide-in-prev"
               }`}
             >
               <div className="relative z-20">
@@ -123,9 +123,9 @@ const Testimonial = () => {
             {/* Next Testimonial */}
             <div
               className={`w-1/4 md:w-1/3 opacity-50 transform scale-90 transition-all duration-500 ease-in-out ${
-                direction === 'next'
-                  ? 'animate-slide-in-next'
-                  : 'animate-slide-out-next'
+                direction === "next"
+                  ? "animate-slide-in-next"
+                  : "animate-slide-out-next"
               }`}
             >
               <div className="bg-white p-4 md:p-6 rounded-lg shadow-[11px_10px_0px_rgba(0,0,0,0.85)] border-[1px] border-black h-56 md:h-80 flex flex-col justify-center overflow-y-auto">
@@ -155,13 +155,13 @@ const Testimonial = () => {
               <button
                 key={index}
                 onClick={() => {
-                  setDirection(index > activeTestimonial ? 'next' : 'prev');
+                  setDirection(index > activeTestimonial ? "next" : "prev");
                   setActiveTestimonial(index);
                 }}
                 className={`w-2 h-2 rounded-full transition-colors duration-300 ${
                   index === activeTestimonial
-                    ? 'bg-black'
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    ? "bg-black"
+                    : "bg-gray-300 hover:bg-gray-400"
                 }`}
               />
             ))}

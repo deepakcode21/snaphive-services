@@ -1,24 +1,27 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { AppContext } from '../context/AppContext'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from "react";
+import { AppContext } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 
-const RelatedPro = ( {speciality, proID}) => {
+const RelatedPro = ({ speciality, proID }) => {
+  const { Professionals } = useContext(AppContext);
 
-  const {Professionals} = useContext(AppContext)
+  const [relatedPro, setRelatedPro] = useState([]);
+  const navigate = useNavigate();
 
-  const [relatedPro, setRelatedPro] = useState([])
-  const navigate = useNavigate()
-
-  useEffect(()=>{
-    if (Professionals.length > 0 && speciality){
-      const ProfessionalsData = Professionals.filter((pro)=> pro.speciality === speciality && pro._id !== proID )
-      setRelatedPro(ProfessionalsData)
+  useEffect(() => {
+    if (Professionals.length > 0 && speciality) {
+      const ProfessionalsData = Professionals.filter(
+        (pro) => pro.speciality === speciality && pro._id !== proID
+      );
+      setRelatedPro(ProfessionalsData);
     }
-  },[Professionals, speciality,proID])
+  }, [Professionals, speciality, proID]);
 
   return (
     <div className="flex flex-col items-center gap-3 text-gray-900 md:mx-10">
-      <h1 className="text-3xl text-center sm:w-1/2 font-medium">Related Professionals</h1>
+      <h1 className="text-3xl text-center sm:w-1/2 font-medium">
+        Related Professionals
+      </h1>
       <p className="sm:w-1/3 text-center text-sm text-gray-600">
         Simply browse through our extensive list of trusted professionals.
       </p>
@@ -27,7 +30,10 @@ const RelatedPro = ( {speciality, proID}) => {
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-3 sm:px-0 pt-6">
         {relatedPro.slice(0, 5).map((item, index) => (
           <div
-            onClick={() => {navigate(`/booking/${item._id}`); scrollTo(0,0)}}
+            onClick={() => {
+              navigate(`/booking/${item._id}`);
+              scrollTo(0, 0);
+            }}
             className="border-[1px] border-black rounded-xl overflow-hidden cursor-pointer shadow-[11px_10px_0px_rgba(0,0,0,0.85)] hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
             key={index}
           >
@@ -37,7 +43,7 @@ const RelatedPro = ( {speciality, proID}) => {
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
                 src={item.image}
                 alt={item.name}
-                style={{ objectPosition: 'top center' }} // Ensure the face is centered
+                style={{ objectPosition: "top center" }} // Ensure the face is centered
               />
             </div>
 
@@ -51,8 +57,12 @@ const RelatedPro = ( {speciality, proID}) => {
               <p className="text-gray-600 text-sm">{item.speciality}</p>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-black">★</span>
-                <span className="text-sm text-gray-600">{item.rating || "4.5"}</span>
-                <span className="text-sm text-gray-400">({item.reviews || "100"} reviews)</span>
+                <span className="text-sm text-gray-600">
+                  {item.rating || "4.5"}
+                </span>
+                <span className="text-sm text-gray-400">
+                  ({item.reviews || "100"} reviews)
+                </span>
               </div>
             </div>
           </div>
@@ -60,6 +70,6 @@ const RelatedPro = ( {speciality, proID}) => {
       </div>
     </div>
   );
-}
+};
 
-export default RelatedPro
+export default RelatedPro;

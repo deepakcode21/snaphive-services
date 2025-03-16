@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from 'react';
-import { AdminContext } from '../../context/AdminContext';
+import React, { useContext, useEffect } from "react";
+import { AdminContext } from "../../context/AdminContext";
 
 const ProList = () => {
-  const { professionals, aToken, getAllProfessionals, changeAvailability } = useContext(AdminContext);
+  const { professionals, aToken, getAllProfessionals, changeAvailability } =
+    useContext(AdminContext);
 
   useEffect(() => {
     if (aToken) {
@@ -39,7 +40,7 @@ const ProList = () => {
               <div className="flex items-center gap-2 mt-2">
                 <input
                   type="checkbox"
-                  onChange={() =>changeAvailability(item._id)}
+                  onChange={() => changeAvailability(item._id)}
                   checked={item.available}
                   readOnly // To make it non-editable
                   className="cursor-pointer"

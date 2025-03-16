@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AdminContext } from "../context/AdminContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { ProContext } from "../context/ProContext";
 
 const Login = () => {
   const [state, setState] = useState("Admin");
@@ -9,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const { setAToken, backendUrl } = useContext(AdminContext);
+  const { setPToken } = useContext(ProContext);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -21,12 +23,21 @@ const Login = () => {
         if (data.success) {
           localStorage.setItem("aToken", data.token);
           setAToken(data.token);
-        }else{
-          toast.error(data.message )
+        } else {
+          toast.error(data.message);
         }
       } else {
-    
-        // Handle other states (e.g., "Professional") if needed
+        const { data } = await axios.post(
+          backendUrl + "/api/professional/login",
+          { email, password }
+        );
+        if (data.success) {
+          localStorage.setItem("pToken", data.token);
+          setPToken(data.token);
+          console.log(data.token);
+        } else {
+          toast.error(data.message);
+        }
       }
     } catch (error) {
       console.error("Login failed:", error);

@@ -41,8 +41,8 @@ const Footer = () => {
           <motion.div className="space-y-6" variants={itemVariants}>
             <img className="w-40" src={assets.logo} alt="SnapHive Logo" />
             <p className="text-gray-600 leading-relaxed">
-              Our platform is designed to make your life easier by connecting you
-              with trusted, skilled professionals in just a few clicks.
+              Our platform is designed to make your life easier by connecting
+              you with trusted, skilled professionals in just a few clicks.
             </p>
             <div className="flex space-x-4">
               <motion.a
@@ -125,7 +125,9 @@ const Footer = () => {
 
           {/*------------------ Right Section (Contact Info) ------------------*/}
           <motion.div className="space-y-6" variants={itemVariants}>
-            <h3 className="text-xl font-semibold text-gray-900">GET IN TOUCH</h3>
+            <h3 className="text-xl font-semibold text-gray-900">
+              GET IN TOUCH
+            </h3>
             <ul className="space-y-3">
               <li className="text-gray-600">+91-XXXX-XXXX-XX</li>
               <li className="text-gray-600">deepak@gmail.com</li>

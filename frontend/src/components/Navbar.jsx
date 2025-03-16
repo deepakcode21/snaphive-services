@@ -5,18 +5,18 @@ import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const {token, setToken, userData} = useContext(AppContext)
+  const { token, setToken, userData } = useContext(AppContext);
   const [showMenu, setShowMenu] = useState(false);
 
   const logout = () => {
-    setToken(false)
-    localStorage.removeItem('token')
-  }
+    setToken(false);
+    localStorage.removeItem("token");
+  };
 
   return (
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-gray-200 bg-white shadow-sm px-4 md:px-8">
       {/* Logo */}
-      <img 
+      <img
         className="w-44 cursor-pointer"
         src={assets.logo}
         alt="Logo"
@@ -143,7 +143,7 @@ const Navbar = () => {
 
       {/* User Actions */}
       <div className="flex items-center gap-4">
-        {token && userData ?  (
+        {token && userData ? (
           <div className="flex items-center gap-2 cursor-pointer group relative">
             <img
               className="w-10 h-10 rounded-full object-cover"

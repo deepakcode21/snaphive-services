@@ -30,14 +30,14 @@ const AppContextProvider = (props) => {
 
   const loadUserProfileData = async () => {
     try {
-
-      const {data} = await axios.get(backendUrl + '/api/user/get-profile',{headers:{token}})
+      const { data } = await axios.get(backendUrl + "/api/user/get-profile", {
+        headers: { token },
+      });
       if (data.success) {
-        setUserData(data.userData)
-      }else {
-        toast.error(data.message)
+        setUserData(data.userData);
+      } else {
+        toast.error(data.message);
       }
-
     } catch (error) {
       console.log(error);
       toast.error(error.message);
@@ -45,26 +45,28 @@ const AppContextProvider = (props) => {
   };
 
   const value = {
-    Professionals, 
+    Professionals,
     getProfessionalsData,
     currencySymbol,
-    token, setToken,
+    token,
+    setToken,
     backendUrl,
-    userData, setUserData,
-    loadUserProfileData
+    userData,
+    setUserData,
+    loadUserProfileData,
   };
 
   useEffect(() => {
     getProfessionalsData();
   }, []);
 
-  useEffect (() => {
-    if (token){
-      loadUserProfileData()
-    } else{
-      setUserData(false)
+  useEffect(() => {
+    if (token) {
+      loadUserProfileData();
+    } else {
+      setUserData(false);
     }
-  },[token])
+  }, [token]);
 
   return (
     <AppContext.Provider value={value}>{props.children}</AppContext.Provider>

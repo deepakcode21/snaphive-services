@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { assets } from "../assets/assets";
 
-const MyAppointments = () => {
+const MyBookings = () => {
   const { backendUrl, token } = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -33,7 +33,6 @@ const MyAppointments = () => {
       dateArray[0] + " " + months[Number(dateArray[1])] + " " + dateArray[2]
     );
   };
-
 
   const getUserBookings = async () => {
     try {
@@ -68,7 +67,6 @@ const MyAppointments = () => {
   };
 
   const initPay = (order) => {
-
     if (!order?.id) {
       console.error("Invalid Order ID: Popup will not open.");
       return;
@@ -103,7 +101,6 @@ const MyAppointments = () => {
     };
     const rzp = new window.Razorpay(options);
     rzp.open();
-  
   };
 
   // Function to make payment using razorpay
@@ -228,4 +225,4 @@ const MyAppointments = () => {
   );
 };
 
-export default MyAppointments;
+export default MyBookings;

@@ -28,7 +28,7 @@ const Professional = () => {
         Browse through the professionals by specialty.
       </p>
       <div className="flex flex-col sm:flex-row items-start gap-5 mt-5">
-        {/*------------------------------ Right Side (Filter Section) ------------------------------*/}
+        {/*---------- Right Side (Filter Section) ----------*/}
         <div className="w-full sm:w-64 rounded-lg p-4">
           <h3 className="text-lg font-semibold mb-4">Filter by Specialty</h3>
           <div className="flex flex-col gap-3">

@@ -172,7 +172,6 @@ const listBooking = async (req, res) => {
     const bookings = await bookingModel.find({ userId });
 
     res.json({ success: true, bookings });
-
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -180,12 +179,10 @@ const listBooking = async (req, res) => {
 };
 
 const cancelBooking = async (req, res) => {
-
   try {
     const { userId, bookingId } = req.body;
     const bookingData = await bookingModel.findById(bookingId);
 
-  
     if (bookingData.userId !== userId) {
       return res.json({ success: false, message: "Unauthorized action" });
     }
@@ -195,11 +192,13 @@ const cancelBooking = async (req, res) => {
     const { proId, slotDate, slotTime } = bookingData;
     const proData = await professionalModel.findById(proId);
 
-    let slots_booked = proData.slots_booked
+    let slots_booked = proData.slots_booked;
 
-    slots_booked[slotDate] = slots_booked[slotDate].filter(e => e !== slotTime)
-    
-    await professionalModel.findByIdAndUpdate(proId, { slots_booked })
+    slots_booked[slotDate] = slots_booked[slotDate].filter(
+      (e) => e !== slotTime
+    );
+
+    await professionalModel.findByIdAndUpdate(proId, { slots_booked });
 
     res.json({
       success: true,
@@ -249,24 +248,24 @@ const paymentRazorpay = async (req, res) => {
   }
 };
 
-
 const verifyRazorpay = async (req, res) => {
   try {
-      const { razorpay_order_id } = req.body
-      const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
+    const { razorpay_order_id } = req.body;
+    const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id);
 
-      if (orderInfo.status === 'paid') {
-          await bookingModel.findByIdAndUpdate(orderInfo.receipt, { payment: true })
-          res.json({ success: true, message: "Payment Successful" })
-      }
-      else {
-          res.json({ success: false, message: 'Payment Failed' })
-      }
+    if (orderInfo.status === "paid") {
+      await bookingModel.findByIdAndUpdate(orderInfo.receipt, {
+        payment: true,
+      });
+      res.json({ success: true, message: "Payment Successful" });
+    } else {
+      res.json({ success: false, message: "Payment Failed" });
+    }
   } catch (error) {
-      console.log(error)
-      res.json({ success: false, message: error.message })
+    console.log(error);
+    res.json({ success: false, message: error.message });
   }
-}
+};
 
 export {
   registerUser,
@@ -277,5 +276,5 @@ export {
   listBooking,
   cancelBooking,
   paymentRazorpay,
-  verifyRazorpay
+  verifyRazorpay,
 };

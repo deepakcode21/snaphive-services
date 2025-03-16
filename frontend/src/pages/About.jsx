@@ -51,10 +51,7 @@ const About = () => {
           alt="About Us"
           variants={fadeInUp}
         />
-        <motion.div
-          className="w-full md:w-1/2 space-y-6"
-          variants={fadeInUp}
-        >
+        <motion.div className="w-full md:w-1/2 space-y-6" variants={fadeInUp}>
           <p className="text-gray-700 leading-relaxed text-lg">
             Welcome to SnapHive, your go-to platform for premium home and
             lifestyle services. From beauty and home repairs to cleaning and
@@ -73,7 +70,8 @@ const About = () => {
             <p className="text-gray-700 leading-relaxed text-lg">
               We aim to revolutionize service hiring by making it effortless and
               efficient. Through technology and innovation, we empower
-              professionals while ensuring top-quality experiences for our users.
+              professionals while ensuring top-quality experiences for our
+              users.
             </p>
           </div>
         </motion.div>

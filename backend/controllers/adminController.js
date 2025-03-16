@@ -4,6 +4,7 @@ import { v2 as cloudinary } from "cloudinary";
 import professionalModel from "../models/professionalModel.js";
 import jwt from "jsonwebtoken";
 import bookingModel from "../models/bookingModel.js"
+import userModel from "../models/userModel.js"
 
 const addProfessional = async (req, res) => {
   try {
@@ -141,4 +142,41 @@ const bookingsAdmin = async (req, res) => {
 
 }
 
-export { addProfessional, loginAdmin, allProfessionals, bookingsAdmin };
+const adminDashboard = async (req, res) => {
+  try {
+
+      const professionals = await professionalModel.find({})
+      const users = await userModel.find({})
+      const bookings = await bookingModel.find({})
+
+      const dashData = {
+          professionals: professionals.length,
+          bookings: bookings.length,
+          clients: users.length,
+          latestBookings: bookings.reverse().slice(0, 5)
+      }
+
+      res.json({ success: true, dashData })
+
+  } catch (error) {
+      console.log(error)
+      res.json({ success: false, message: error.message })
+  }
+}
+
+const bookingCancel = async (req, res) => {
+  try {
+
+      const { bookingId } = req.body
+      await bookingModel.findByIdAndUpdate(bookingId, { cancelled: true })
+
+      res.json({ success: true, message: 'Booking Cancelled' })
+
+  } catch (error) {
+      console.log(error)
+      res.json({ success: false, message: error.message })
+  }
+
+}
+
+export { addProfessional, loginAdmin, allProfessionals, bookingsAdmin, bookingCancel, adminDashboard };

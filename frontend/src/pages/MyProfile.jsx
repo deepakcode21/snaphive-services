@@ -6,7 +6,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const MyProfile = () => {
-  const { userData, setUserData, token, backendUrl, loadUserProfileData } = useContext(AppContext);
+  const { userData, setUserData, token, backendUrl, loadUserProfileData } =
+    useContext(AppContext);
   const [isEdit, setIsEdit] = useState(false);
   const [image, setImage] = useState(null);
 
@@ -23,9 +24,13 @@ const MyProfile = () => {
         formData.append("image", image);
       }
 
-      const { data } = await axios.post(`${backendUrl}/api/user/update-profile`, formData, {
-        headers: { token },
-      });
+      const { data } = await axios.post(
+        `${backendUrl}/api/user/update-profile`,
+        formData,
+        {
+          headers: { token },
+        }
+      );
 
       if (data.success) {
         toast.success(data.message);
@@ -89,7 +94,9 @@ const MyProfile = () => {
             className="w-full text-3xl font-bold text-center bg-gray-50 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black-500"
             type="text"
             value={userData.name}
-            onChange={(e) => setUserData((prev) => ({ ...prev, name: e.target.value }))}
+            onChange={(e) =>
+              setUserData((prev) => ({ ...prev, name: e.target.value }))
+            }
           />
         ) : (
           <p className="text-3xl font-bold text-neutral-800">{userData.name}</p>
@@ -115,7 +122,9 @@ const MyProfile = () => {
                 className="w-full bg-gray-50 p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black"
                 type="text"
                 value={userData.phone}
-                onChange={(e) => setUserData((prev) => ({ ...prev, phone: e.target.value }))}
+                onChange={(e) =>
+                  setUserData((prev) => ({ ...prev, phone: e.target.value }))
+                }
               />
             ) : (
               <p className="text-blue-400">{userData.phone}</p>
@@ -172,7 +181,9 @@ const MyProfile = () => {
             {isEdit ? (
               <select
                 className="w-full bg-gray-50 p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black"
-                onChange={(e) => setUserData((prev) => ({ ...prev, gender: e.target.value }))}
+                onChange={(e) =>
+                  setUserData((prev) => ({ ...prev, gender: e.target.value }))
+                }
                 value={userData.gender}
               >
                 <option value="Male">Male</option>
@@ -188,7 +199,9 @@ const MyProfile = () => {
               <input
                 className="w-full bg-gray-50 p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black"
                 type="date"
-                onChange={(e) => setUserData((prev) => ({ ...prev, dob: e.target.value }))}
+                onChange={(e) =>
+                  setUserData((prev) => ({ ...prev, dob: e.target.value }))
+                }
                 value={userData.dob}
               />
             ) : (

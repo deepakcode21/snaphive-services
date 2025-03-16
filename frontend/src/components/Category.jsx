@@ -33,10 +33,7 @@ const Category = () => {
       animate="visible"
       variants={containerVariants}
     >
-      <motion.h1
-        className="text-3xl font-medium"
-        variants={itemVariants}
-      >
+      <motion.h1 className="text-3xl font-medium" variants={itemVariants}>
         Our Home Services
       </motion.h1>
       <motion.p
