@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useMemo } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
@@ -26,49 +26,55 @@ const Booking = () => {
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState(0);
 
+  // Function to generate random rating between 3 and 5
+  const generateRandomRating = () => {
+    return (Math.random() * (5 - 3) + 3).toFixed(1); // Random rating between 3 and 5 with 1 decimal place
+  };
+
+  // Function to generate random reviews between 305 and 999
+  const generateRandomReviews = () => {
+    return Math.floor(Math.random() * (999 - 305 + 1)) + 305; // Random reviews between 305 and 999
+  };
+
   const fetchProInfo = async () => {
     const proInfo = Professionals.find((pro) => pro._id === proId);
     setProInfo(proInfo);
+
+    // Set random rating and reviews
+    setRating(generateRandomRating());
+    setReviews(generateRandomReviews());
   };
 
-  const getAvailableSolts = async () => {
+  const getAvailableSlots = async () => {
     setProSlots([]);
 
-    // getting current date
+    // Get current date
     let today = new Date();
 
     for (let i = 0; i < 7; i++) {
-      // getting date with index
+      // Get date with index
       let currentDate = new Date(today);
       currentDate.setDate(today.getDate() + i);
 
-      // setting end time of the date with index
-      let endTime = new Date();
-      endTime.setDate(today.getDate() + i);
-      endTime.setHours(21, 0, 0, 0);
+      // Set start time at 9 AM
+      let startTime = new Date(currentDate);
+      startTime.setHours(9, 0, 0, 0);
 
-      // setting hours
-      if (today.getDate() === currentDate.getDate()) {
-        currentDate.setHours(
-          currentDate.getHours() > 10 ? currentDate.getHours() + 1 : 10
-        );
-        currentDate.setMinutes(currentDate.getMinutes() > 30 ? 30 : 0);
-      } else {
-        currentDate.setHours(10);
-        currentDate.setMinutes(0);
-      }
+      // Set end time at 5 PM
+      let endTime = new Date(currentDate);
+      endTime.setHours(17, 0, 0, 0);
 
       let timeSlots = [];
 
-      while (currentDate < endTime) {
-        let formattedTime = currentDate.toLocaleTimeString([], {
+      while (startTime < endTime) {
+        let formattedTime = startTime.toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
         });
 
-        let day = currentDate.getDate();
-        let month = currentDate.getMonth() + 1;
-        let year = currentDate.getFullYear();
+        let day = startTime.getDate();
+        let month = startTime.getMonth() + 1;
+        let year = startTime.getFullYear();
 
         const slotDate = day + "_" + month + "_" + year;
         const slotTime = formattedTime;
@@ -82,13 +88,13 @@ const Booking = () => {
         if (isSlotAvailable) {
           // Add slot to array
           timeSlots.push({
-            datetime: new Date(currentDate),
+            datetime: new Date(startTime),
             time: formattedTime,
           });
         }
 
-        // Increment current time by 30 minutes
-        currentDate.setMinutes(currentDate.getMinutes() + 30);
+        // Increment current time by 1 hour
+        startTime.setHours(startTime.getHours() + 1);
       }
 
       setProSlots((prev) => [...prev, timeSlots]);
@@ -136,13 +142,13 @@ const Booking = () => {
 
   useEffect(() => {
     if (proInfo) {
-      getAvailableSolts();
+      getAvailableSlots();
     }
   }, [proInfo]);
 
   return proInfo ? (
     <div className="text-gray-900 p-4 sm:p-6 lg:p-8">
-      <div className="relative flex flex-col sm:flex-row gap-6 bg-white rounded-2xl shadow-lg border border-black p-6 md:p-8 lg:p-10">
+      <div className="relative flex flex-col sm:flex-row gap-6 bg-white rounded-2xl shadow-[11px_10px_0px_rgba(0,0,0,0.7)] border border-black p-6 md:p-8 lg:p-10">
         <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-black rounded-br-3xl" />
 
         <div className="sm:w-72 sm:flex-shrink-0">
@@ -170,7 +176,7 @@ const Booking = () => {
                     key={index}
                     className={`text-lg ${
                       index < Math.floor(rating)
-                        ? "text-black"
+                        ? "text-yellow-400"
                         : "text-gray-400"
                     }`}
                   >
@@ -179,10 +185,17 @@ const Booking = () => {
                 ))}
               </div>
               <p className="text-gray-700 text-xs ml-1">
-                {rating} ({reviews} reviews)
+                {rating} ( {reviews} Reviews )
               </p>
             </div>
           </div>
+          {proInfo.about && (
+            <div className="mt-4">
+              <p className="text-gray-700 font-normal text-sm">
+                {proInfo.about}
+              </p>
+            </div>
+          )}
 
           <p className="text-gray-700 font-medium mt-4">
             Booking Fee:{" "}
@@ -192,10 +205,9 @@ const Booking = () => {
           </p>
         </div>
       </div>
-
-      <div className="sm:ml-72 sm:pl-4 mt-8 font-medium text-[#565656]">
+      <div className="mt-8 font-medium text-[#565656]">
         <p>Booking slots</p>
-        <div className="flex gap-3 items-center w-full overflow-x-scroll mt-4">
+        <div className="flex gap-3 w-full overflow-x-scroll mt-4">
           {proSlots.length &&
             proSlots.map((item, index) => (
               <div
@@ -203,8 +215,8 @@ const Booking = () => {
                 key={index}
                 className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${
                   slotIndex === index
-                    ? "bg-primary text-white"
-                    : "border border-[#DDDDDD]"
+                    ? "bg-black text-white"
+                    : "border bg-white"
                 }`}
               >
                 <p>{item[0] && daysOfWeek[item[0].datetime.getDay()]}</p>
@@ -219,10 +231,10 @@ const Booking = () => {
               <p
                 onClick={() => setSlotTime(item.time)}
                 key={index}
-                className={`text-sm font-light  flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${
+                className={`text-sm font-light flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${
                   item.time === slotTime
-                    ? "bg-primary text-white"
-                    : "text-[#949494] border border-[#B4B4B4]"
+                    ? "bg-black text-white"
+                    : "text-black border bg-white"
                 }`}
               >
                 {item.time.toLowerCase()}
@@ -232,7 +244,7 @@ const Booking = () => {
 
         <button
           onClick={bookServices}
-          className="bg-primary text-white text-sm font-light px-20 py-3 rounded-full my-6"
+          className="mt-6 px-6 py-3 my-7 bg-black text-white rounded-lg hover:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
         >
           Book an appointment
         </button>
