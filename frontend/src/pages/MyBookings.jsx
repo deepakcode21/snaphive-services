@@ -11,20 +11,12 @@ const MyBookings = () => {
 
   const [bookings, setBookings] = useState([]);
   const [payment, setPayment] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5); // Number of items to display per page
 
   const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
   ];
 
   const slotDateFormat = (slotDate) => {
@@ -124,13 +116,21 @@ const MyBookings = () => {
     }
   }, [token]);
 
+  // Calculate the current items to display
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = bookings.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="p-6 min-h-screen">
       <p className="pb-3 text-2xl text-center font-bold text-black border-b border-black">
         My Bookings
       </p>
       <div className="mt-6 max-w-6xl mx-auto space-y-6">
-        {bookings.map((item, index) => (
+        {currentItems.map((item, index) => (
           <div
             key={index}
             className="flex flex-col sm:flex-row gap-4 p-6 bg-white rounded-lg border shadow-[11px_10px_0px_rgba(0,0,0,0.70)] hover:shadow transition-shadow duration-300"
@@ -209,6 +209,20 @@ const MyBookings = () => {
               )}
             </div>
           </div>
+        ))}
+      </div>
+      {/* Pagination Controls */}
+      <div className="flex justify-center mt-6">
+        {Array.from({ length: Math.ceil(bookings.length / itemsPerPage) }, (_, i) => (
+          <button
+            key={i + 1}
+            onClick={() => paginate(i + 1)}
+            className={`mx-1 px-4 py-2 border rounded-lg ${
+              currentPage === i + 1 ? "bg-black text-white" : "bg-white text-black"
+            }`}
+          >
+            {i + 1}
+          </button>
         ))}
       </div>
     </div>

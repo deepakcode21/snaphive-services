@@ -42,7 +42,7 @@ const Navbar = () => {
       {/* Logout Button */}
       <button
         onClick={logout}
-        className="px-4 sm:px-6 py-1.5 sm:py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-xs sm:text-sm md:text-base"
+        className="px-4 sm:px-6 py-1.5 sm:py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 text-xs sm:text-sm md:text-base"
       >
         Logout
       </button>

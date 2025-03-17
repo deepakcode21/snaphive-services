@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { assets } from "../../assets/assets";
 import { useContext } from "react";
 import { AdminContext } from "../../context/AdminContext";
@@ -9,11 +9,23 @@ const AllBookings = () => {
     useContext(AdminContext);
   const { slotDateFormat, currency } = useContext(AppContext);
 
+  // State for pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
+
   useEffect(() => {
     if (aToken) {
       getAllBookings();
     }
   }, [aToken]);
+
+  // Calculate the current bookings to display
+  const indexOfLastBooking = currentPage * itemsPerPage;
+  const indexOfFirstBooking = indexOfLastBooking - itemsPerPage;
+  const currentBookings = bookings.slice(indexOfFirstBooking, indexOfLastBooking);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="w-full max-w-6xl mx-auto p-2">
@@ -31,13 +43,13 @@ const AllBookings = () => {
         </div>
 
         {/* Table Rows */}
-        {bookings.map((item, index) => (
+        {currentBookings.map((item, index) => (
           <div
             key={index}
             className="flex flex-col sm:grid sm:grid-cols-[1fr_2fr_3fr_3fr_2fr_1fr_1fr] gap-4 items-center py-4 px-6 border-b hover:bg-gray-100 transition-colors duration-200"
           >
             {/* Row Number */}
-            <p className="text-sm text-gray-700 max-sm:hidden">{index + 1}</p>
+            <p className="text-sm text-gray-700 max-sm:hidden">{index + 1 + (currentPage - 1) * itemsPerPage}</p>
 
             {/* Client Info */}
             <div className="flex items-center gap-3">
@@ -94,6 +106,21 @@ const AllBookings = () => {
               </button>
             )}
           </div>
+        ))}
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center mt-6">
+        {Array.from({ length: Math.ceil(bookings.length / itemsPerPage) }, (_, i) => (
+          <button
+            key={i + 1}
+            onClick={() => paginate(i + 1)}
+            className={`mx-1 px-4 py-2 rounded-full ${
+              currentPage === i + 1 ? 'bg-black text-white' : 'bg-gray-200 text-gray-800'
+            }`}
+          >
+            {i + 1}
+          </button>
         ))}
       </div>
     </div>

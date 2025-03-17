@@ -1,9 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AdminContext } from "../../context/AdminContext";
 
 const ProList = () => {
   const { professionals, aToken, getAllProfessionals, changeAvailability } =
     useContext(AdminContext);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
 
   useEffect(() => {
     if (aToken) {
@@ -11,11 +14,24 @@ const ProList = () => {
     }
   }, [aToken]);
 
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(professionals.length / itemsPerPage);
+
+  // Get the current page's items
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = professionals.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <div className="m-5 max-h-[90vh] overflow-y-scroll">
       <h1 className="text-lg font-medium">All Professionals</h1>
       <div className="w-full flex flex-wrap gap-4 pt-5 gap-y-6">
-        {professionals.map((item, index) => (
+        {currentItems.map((item, index) => (
           <div
             className="border-[1px] border-black rounded-xl overflow-hidden cursor-pointer shadow-[11px_10px_0px_rgba(0,0,0,0.85)] hover:shadow-lg transition-all duration-300 bg-white flex flex-col justify-between"
             key={index}
@@ -51,6 +67,23 @@ const ProList = () => {
               </div>
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center mt-6">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={`mx-1 px-3 py-1 rounded ${
+              currentPage === index + 1
+                ? "bg-black text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+          >
+            {index + 1}
+          </button>
         ))}
       </div>
     </div>
