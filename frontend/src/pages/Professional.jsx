@@ -89,9 +89,19 @@ const Professional = () => {
 
               {/* Enhanced Card Content */}
               <div className="p-4 flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-green-500">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  <p className="text-sm">Available</p>
+                <div
+                  className={`flex items-center gap-2 ${
+                    item.available ? "text-green-500" : "text-gray-500"
+                  }`}
+                >
+                  <span
+                    className={`w-2 h-2 ${
+                      item.available ? " bg-green-500" : "bg-gray-500"
+                    } rounded-full`}
+                  ></span>
+                  <p className="text-sm">
+                    {item.available ? "Available" : "Not Available"}
+                  </p>
                 </div>
                 <p className="text-gray-900 text-lg font-semibold">
                   {item.name}
@@ -113,19 +123,22 @@ const Professional = () => {
       </div>
       {/* Pagination Controls */}
       <div className="flex justify-center mt-8">
-        {Array.from({ length: Math.ceil(filterPro.length / itemsPerPage) }, (_, i) => (
-          <button
-            key={i + 1}
-            onClick={() => paginate(i + 1)}
-            className={`mx-1 px-4 py-2 rounded-md ${
-              currentPage === i + 1
-                ? "bg-black text-white"
-                : "bg-white hover:bg-gray-200 text-gray-700"
-            }`}
-          >
-            {i + 1}
-          </button>
-        ))}
+        {Array.from(
+          { length: Math.ceil(filterPro.length / itemsPerPage) },
+          (_, i) => (
+            <button
+              key={i + 1}
+              onClick={() => paginate(i + 1)}
+              className={`mx-1 px-4 py-2 rounded-md ${
+                currentPage === i + 1
+                  ? "bg-black text-white"
+                  : "bg-white hover:bg-gray-200 text-gray-700"
+              }`}
+            >
+              {i + 1}
+            </button>
+          )
+        )}
       </div>
     </div>
   );

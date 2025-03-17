@@ -49,9 +49,19 @@ const RelatedPro = ({ speciality, proID }) => {
 
             {/* Enhanced Card Content */}
             <div className="p-4 flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-green-500">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                <p className="text-sm">Available</p>
+              <div
+                className={`flex items-center gap-2 ${
+                  item.available ? "text-green-500" : "text-gray-500"
+                }`}
+              >
+                <span
+                  className={`w-2 h-2 ${
+                    item.available ? " bg-green-500" : "bg-gray-500"
+                  } rounded-full`}
+                ></span>
+                <p className="text-sm">
+                  {item.available ? "Available" : "Not Available"}
+                </p>
               </div>
               <p className="text-gray-900 text-lg font-semibold">{item.name}</p>
               <p className="text-gray-600 text-sm">{item.speciality}</p>
