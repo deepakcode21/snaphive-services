@@ -2,15 +2,27 @@ import React, { useContext } from "react";
 import { assets } from "../assets/assets";
 import { AdminContext } from "../context/AdminContext";
 import { useNavigate } from "react-router-dom";
+import { ProContext } from "../context/ProContext";
 
 const Navbar = () => {
   const { aToken, setAToken } = useContext(AdminContext);
+  const { pToken, setPToken } = useContext(ProContext);
   const navigate = useNavigate();
 
   const logout = () => {
     navigate("/");
-    aToken && setAToken("");
-    aToken && localStorage.removeItem("aToken");
+    
+    // Logout logic for admin
+    if (aToken) {
+      setAToken("");
+      localStorage.removeItem("aToken");
+    }
+    
+    // Logout logic for professional
+    if (pToken) {
+      setPToken("");
+      localStorage.removeItem("pToken");
+    }
   };
 
   return (

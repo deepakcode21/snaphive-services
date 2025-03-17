@@ -74,8 +74,8 @@ const MyBookings = () => {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: order.amount,
       currency: order.currency,
-      name: "Appointment Payment",
-      description: "Appointment Payment",
+      name: "Booking Payment",
+      description: "Booking Payment",
       order_id: order.id,
       receipt: order.receipt,
       handler: async (response) => {
@@ -126,18 +126,18 @@ const MyBookings = () => {
 
   return (
     <div className="p-6 min-h-screen">
-      <p className="pb-3 text-2xl text-center font-bold text-black border-b border-gray-200">
+      <p className="pb-3 text-2xl text-center font-bold text-black border-b border-black">
         My Bookings
       </p>
-      <div className="mt-6 max-w-6xl mx-auto space-y-6"> 
+      <div className="mt-6 max-w-6xl mx-auto space-y-6">
         {bookings.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col sm:flex-row gap-4 p-6 bg-white rounded-lg  shadow-[11px_10px_0px_rgba(0,0,0,0.70)] hover:shadow-md transition-shadow duration-300 border border-white"
+            className="flex flex-col sm:flex-row gap-4 p-6 bg-white rounded-lg border shadow-[11px_10px_0px_rgba(0,0,0,0.70)] hover:shadow transition-shadow duration-300"
           >
             <div className="flex-shrink-0">
               <img
-                className="w-36 h-36 object-cover rounded-lg bg-[#EAEFFF]"
+                className="w-36 h-36 object-cover rounded-lg bg-white"
                 src={item.proData.image}
                 alt={item.proData.name}
               />
@@ -203,7 +203,7 @@ const MyBookings = () => {
                 </button>
               )}
               {item.cancelled && !item.isCompleted && (
-                <button className="w-full py-2 border border-red-500 rounded-lg text-red-500">
+                <button className="w-full py-2 border border-red-500 bg-red-50 rounded-lg text-red-500">
                   Booking cancelled
                 </button>
               )}
@@ -213,7 +213,6 @@ const MyBookings = () => {
       </div>
     </div>
   );
-  
 };
 
 export default MyBookings;
