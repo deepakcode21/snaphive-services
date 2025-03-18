@@ -88,7 +88,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <motion.a
-                  href="/"
+                  href="#"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }} // Hover animation
                 >
@@ -97,7 +97,7 @@ const Footer = () => {
               </li>
               <li>
                 <motion.a
-                  href="/"
+                  href="#"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                 >
@@ -106,7 +106,7 @@ const Footer = () => {
               </li>
               <li>
                 <motion.a
-                  href="/"
+                  href="#"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                 >
