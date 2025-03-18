@@ -123,7 +123,7 @@ const Navbar = () => {
               href="https://snaphive-services.vercel.app/" // Replace with your actual admin panel URL
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 mb-2 px-6 py-2 bg-black text-white rounded-lg  gap-2 hover:bg-gray-600 transition-colors duration-300 "
+              className="mt-2 mb-2 px-6 py-2 bg-black text-white rounded-lg flex  gap-2 hover:bg-gray-600 transition-colors duration-300 "
             >
               Admin Panel
             </a>
