@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
 import { assets } from "../assets/assets";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"; // Import social media icons
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+
   // Animation variants for the container
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -46,7 +48,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <motion.a
-                href="#"
+                href="https://www.facebook.com/"
                 className="text-gray-600 hover:text-blue-500 transition-colors duration-300"
                 whileHover={{ scale: 1.1 }} // Hover animation
                 whileTap={{ scale: 0.9 }} // Tap animation
@@ -54,7 +56,7 @@ const Footer = () => {
                 <FaFacebook size={20} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://x.com/?lang=en"
                 className="text-gray-600 hover:text-blue-400 transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -62,7 +64,7 @@ const Footer = () => {
                 <FaTwitter size={20} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://www.instagram.com/accounts/login/?hl=en"
                 className="text-gray-600 hover:text-pink-500 transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -70,7 +72,7 @@ const Footer = () => {
                 <FaInstagram size={20} />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://in.linkedin.com/"
                 className="text-gray-600 hover:text-blue-700 transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -86,7 +88,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <motion.a
-                  href={"/"}
+                  href="/"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }} // Hover animation
                 >
@@ -95,7 +97,7 @@ const Footer = () => {
               </li>
               <li>
                 <motion.a
-                  href={"/about"}
+                  href="/about"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                 >
@@ -104,7 +106,7 @@ const Footer = () => {
               </li>
               <li>
                 <motion.a
-                  href={"/contact"}
+                  href="/contact"
                   className="text-gray-600 hover:text-gray-900 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                 >
