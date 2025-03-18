@@ -32,11 +32,9 @@ frontend/
 │   │   ├── Professional.jsx
 │   ├── index.css
 │   ├── main.jsx
-├── .env                        # Environment variables
-├── .gitignore                  # Files to ignore in Git
+├── .env                         # Environment variables
 ├── index.html                   # Main HTML file
 ├── package.json                 # Dependencies & scripts
-├── tailwind.config.js           # Tailwind configuration
 ├── vite.config.js               # Vite configuration
 └── README.md                    # Project Documentation
 ```
