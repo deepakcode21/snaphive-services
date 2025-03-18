@@ -12,7 +12,7 @@ proRouter.post('/complete-booking', authPro, bookingComplete)
 proRouter.post('/cancel-booking', authPro, bookingCancel)
 proRouter.get('/dashboard', authPro, proDashboard)
 proRouter.get('/profile', authPro, proProfile)
-proRouter.post ('/update-profile', authPro, updateProProfile)
+proRouter.post('/update-profile', authPro, updateProProfile)
 
 
 export default proRouter
