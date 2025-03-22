@@ -89,7 +89,7 @@ npm run dev
 ```
 ### **Admin Setup**  
 ```bash
-cd frontend  
+cd admin  
 
 # Install dependencies  
 npm install  
