@@ -1,4 +1,4 @@
-# **SnapHive Services**  
+# **SnapHive Services – Redefining Professional Service Booking!**  
  *Your Gateway to Professional Services* 🚀  
 
 SnapHive is a **modern, scalable, and user-friendly** platform that seamlessly connects users with **verified professionals** for hassle-free service booking. Whether you’re a **customer** seeking services, a **professional** managing bookings, or an **admin** overseeing operations, **SnapHive has got you covered!**
@@ -6,7 +6,16 @@ SnapHive is a **modern, scalable, and user-friendly** platform that seamlessly c
 ## **🌐 Live Demo**  
 - **Frontend**: [SnapHive Live](https://snaphive-service.vercel.app/)  
 - **Admin Panel**: [SnapHive Admin](https://snaphive-services.vercel.app/)  
-- **GitHub Repository**: [SnapHive Services](https://github.com/deepakcode21/snaphive-services)  
+- **GitHub Repository**: [SnapHive Services](https://github.com/deepakcode21/snaphive-services)
+
+## **🖼️ UI Preview**
+
+| ![Screenshot 1](https://github.com/user-attachments/assets/cc637c57-2516-4be9-a103-80c0cc5bcb83) | ![Screenshot 2](https://github.com/user-attachments/assets/2a0db790-4aab-4d34-a82a-860d668eb75c) | ![Screenshot 3](https://github.com/user-attachments/assets/d95d167b-6b72-459e-8e9f-41cacda96c3b) |
+|---|---|---|
+| ![Screenshot 4](https://github.com/user-attachments/assets/f98fefbe-e5aa-47b2-9a84-f8f3372c087a) | ![Screenshot 5](https://github.com/user-attachments/assets/f15782b3-e1c1-4335-866d-148fd2b1ce13) | ![Screenshot 6](https://github.com/user-attachments/assets/85f0f741-ad24-4f0a-b654-81da4b1440d6) |
+| ![Screenshot 7](https://github.com/user-attachments/assets/2eea6e7c-794e-4c17-9f71-40fffb4c7b9d) | ![Screenshot 8](https://github.com/user-attachments/assets/ad2ea247-17bf-4369-808b-850e527304ce) | ![Screenshot 9](https://github.com/user-attachments/assets/73db7aac-2ef9-4f56-be19-6ec096eb656b) |
+| ![Screenshot 10](https://github.com/user-attachments/assets/fbbe32af-8766-4c47-9d80-2aa95ad70f05) | ![Screenshot 11](https://github.com/user-attachments/assets/00505584-ed99-4552-8d61-df5f73e81ab0) | ![Screenshot 12](https://github.com/user-attachments/assets/db6a6b93-2b4a-4766-850a-6ea28168646d) |
+| ![Screenshot 13](https://github.com/user-attachments/assets/5df612c8-04a4-4a8a-b14f-c04882f67374) | ![Screenshot 14](https://github.com/user-attachments/assets/6cedd9a2-68fa-4b73-b0a1-871d027c98f5) | ![Screenshot 15](https://github.com/user-attachments/assets/1555791c-523d-4ca2-ad53-32886401129a) |
 
 
 ## **🎯 Project Overview**  
@@ -143,8 +152,10 @@ node server.js
 
 ## **Detailed Flow Diagrams**  
 
+
 ### **1. User Flow**  
 ```mermaid
+%%{init: {'themeVariables': {'fontSize': '12px'}}}%%
 graph TD
     A[User Visits SnapHive] --> B[Explore Services]
     B --> C{Logged In?}
@@ -161,6 +172,7 @@ graph TD
     M --> N[View Booking Details]
     N --> O[Manage Bookings]
     O --> P[Cancel Booking or Update Profile]
+
 ```
 
 ---
