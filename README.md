@@ -111,7 +111,7 @@ VITE_CURRENCY = ''
 npm run dev  
 ```
 
-### **Backend Setup**  
+### **Here the Backend Setup**  
 ```bash
 cd backend  
 
