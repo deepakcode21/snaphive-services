@@ -17,6 +17,7 @@ const AppContextProvider = (props) => {
   const getProfessionalsData = async () => {
     try {
       const { data } = await axios.get(backendUrl + "/api/professional/list");
+      //http://localhost:5000/api/professional/list
       if (data.success) {
         setProfessionals(data.professionals);
       } else {
